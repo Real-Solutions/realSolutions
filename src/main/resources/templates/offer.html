@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/grid.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Real Offer Hub</title>
+</head>
+<body>
+  
+
+    <logo>
+      <div class="logo">Real Offer Hub</div>
+    </logo>
+    <header>
+      <div th:replace="/fragments/header :: body"></div>
+    </header>
+
+
+
+
+    <main>
+
+      <div class="left">
+
+          <form>
+            <fieldset>
+              <legend>Offer Submission Form</legend>
+            <div class="form-group">
+              <label>Property Address</label>
+              <select class="form-control" id="property-address" placeholder="Property Address" aria-label="Property Address">
+
+                <option selected>Choose...</option>
+                <option th:each="address : ${addresses}" th:value="${address}"></option>
+  
+  
+
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Price</label>
+              <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price">
+            </div>
+            <div class="form-group">
+              <label>Down Payment</label>
+              <input type="text" class="form-control" id="down-payment" placeholder="Down Payment" aria-label="Down Payment">
+            </div>
+            <div class="form-group">
+              <label>Contingent Buyer</label>
+              <select class="form-control" id="contingent-buyer" placeholder="Contingent BUyer" aria-label="Contingent Buyer">
+
+                <option selected>Choose...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+  
+
+              </select>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+          </form>
+
+      </div>
+
+
+
+      <div class="right">
+       <h1>Right Side Content</h1>
+      </div>
+
+    </main>
+
+
+
+
+
+    <lside>Lside</lside>
+    <rside>Rside</rside>
+    <footer>Footer</footer>
+
+
+
+
+</body>
+</html>
