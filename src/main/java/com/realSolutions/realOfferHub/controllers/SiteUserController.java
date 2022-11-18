@@ -52,21 +52,6 @@ public class SiteUserController {
         return "dashboard";
     }
 
-    @GetMapping("/offer")
-    public String getOffer(Principal p, Model m){
-        SiteUser agent = siteUserRepository
-                .findByUsername(p.getName());
-        m.addAttribute("username", p.getName());
-        ArrayList<String> addresses = new ArrayList<>();
-        for (SiteUser seller : agent.getSellers()){
-            for(Property property : seller.getProperties()){
-                addresses.add(property.getAddress());
-            }
-        }
-        m.addAttribute("addresses", addresses);
-        return "offer";
-    }
-
 //    @GetMapping("/newListing")
 //    public String getNewListing(){return "listing";}
 

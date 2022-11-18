@@ -49,6 +49,13 @@
                         <ul th:each="property : ${seller.properties}">
                             <li th:text="'Address: ' + ${property.address}"></li>
                             <li th:text="'Price: ' + ${property.price}"></li>
+                            <div>
+                                <ul th:each="offer : ${property.offers}">
+                                    <li th:text="'Offer Price: ' + ${offer.offerPrice}"></li>
+                                    <li th:text="'Down Payment: ' + ${offer.downPayment}"></li>
+                                    <br>
+                                </ul>
+                            </div>
                             <br>
                         </ul>
                     </div>

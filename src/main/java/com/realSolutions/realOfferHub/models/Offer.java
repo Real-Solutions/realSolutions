@@ -33,14 +33,18 @@ public class Offer {
     @ManyToOne
     Property myProperty ;
 
+    @OneToMany(mappedBy ="myOffer")
+    List<Message> messages;
+
     public Offer() {
     }
 
-    public Offer(String buyersFirstName, float offerPrice, float downPayment, boolean contingentBuyer) {
+    public Offer(String buyersFirstName, float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty) {
         this.buyersFirstName = buyersFirstName;
         this.offerPrice = offerPrice;
         this.downPayment = downPayment;
         this.contingentBuyer = contingentBuyer;
+        this.myProperty = myProperty;
     }
 
     public Long getId() {
