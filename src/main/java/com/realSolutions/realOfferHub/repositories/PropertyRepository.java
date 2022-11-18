@@ -1,4 +1,7 @@
 package com.realSolutions.realOfferHub.repositories;
 
-public interface PropertyRepository {
+import com.realSolutions.realOfferHub.models.Property;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PropertyRepository extends JpaRepository<Property, Long>  {
 }
