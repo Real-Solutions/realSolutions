@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="/css/grid.css">
@@ -8,68 +9,77 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Real Offer Hub: Dashboard</title>
 </head>
+
 <body>
 
     <header>
         <div th:replace="/fragments/header :: body"></div>
     </header>
 
-<div class="container">
-<h2>Dashboard</h2>
-</form>
-<form action ="/newListing" method="get">
-    <fieldset>
-        <input type="hidden" name="accountStatus" th:value="${false}">
-        <input type="submit" value="New Listing"/>
-    </fieldset>
-</form>
-<a href="/newListing">New Listing</a>
-<div>
-    <ul th:each="seller : ${sellers}">
-        <form action ="/deletePost" method="post">
+    <main>
+        <h2>Dashboard</h2>
+        </form>
+        <form action="/newListing" method="get">
             <fieldset>
-                <input type="hidden" name="body" th:value="${seller.username}">
-                <input type="submit" value="X"/>
+                <input type="hidden" name="accountStatus" th:value="${false}">
+                <input type="submit" value="New Listing" />
             </fieldset>
         </form>
-        <form action ="/newListing" method="get">
-            <fieldset>
-                <input type="hidden" name="username" th:value="${seller.username}">
-                <input type="hidden" name="accountStatus" th:value="${true}">
-                <input type="submit" value="New Listing"/>
-            </fieldset>
-        </form>
-        <li th:text="'User name: ' + ${seller.username}"></li>
-        <li>
-            <div>
-                <ul th:each="property : ${seller.properties}">
-                    <li th:text="'Address: ' + ${property.address}"></li>
-                    <li th:text="'Price: ' + ${property.price}"></li>
-                    <br>
-                </ul>
-            </div>
-        </li>
-    </ul>
-</div>
-<!--<table>-->
-<!--    <th>-->
-<!--    <tr>-->
-<!--        <th>Address</th>-->
-<!--        <th>Price</th>-->
-<!--        <th>Client</th>-->
-<!--        <th>Close of Escrow</th>-->
-<!--        <th>Submit Offer</th>-->
-<!--    </tr>-->
-<!--        <tr th:each="client : ${clients}">-->
-<!--            <td th:text="${client.address}"></td>-->
-<!--            <td th:text="${client.address}"></td>-->
-<!--        </tr>-->
-<!--</th>-->
-<!--<td></td>-->
-<!--</tbody>-->
-<!--</table>-->
+        <a href="/newListing">New Listing</a>
+        <div>
+            <ul th:each="seller : ${sellers}">
+                <form action="/deletePost" method="post">
+                    <fieldset>
+                        <input type="hidden" name="body" th:value="${seller.username}">
+                        <input type="submit" value="X" />
+                    </fieldset>
+                </form>
+                <form action="/newListing" method="get">
+                    <fieldset>
+                        <input type="hidden" name="username" th:value="${seller.username}">
+                        <input type="hidden" name="accountStatus" th:value="${true}">
+                        <input type="submit" value="New Listing" />
+                    </fieldset>
+                </form>
+                <li th:text="'User name: ' + ${seller.username}"></li>
+                <li>
+                    <div>
+                        <ul th:each="property : ${seller.properties}">
+                            <li th:text="'Address: ' + ${property.address}"></li>
+                            <li th:text="'Price: ' + ${property.price}"></li>
+                            <br>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--<table>-->
+        <!--    <th>-->
+        <!--    <tr>-->
+        <!--        <th>Address</th>-->
+        <!--        <th>Price</th>-->
+        <!--        <th>Client</th>-->
+        <!--        <th>Close of Escrow</th>-->
+        <!--        <th>Submit Offer</th>-->
+        <!--    </tr>-->
+        <!--        <tr th:each="client : ${clients}">-->
+        <!--            <td th:text="${client.address}"></td>-->
+        <!--            <td th:text="${client.address}"></td>-->
+        <!--        </tr>-->
+        <!--</th>-->
+        <!--<td></td>-->
+        <!--</tbody>-->
+        <!--</table>-->
 
+    </main>
 
-</div>
+    <div class="lside">Lside</div>
+    <div class="rside">Rside</div>
+    
+    
+    
+    <footer>Footer</footer>
+
 </body>
+
 </html>
