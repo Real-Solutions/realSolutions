@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class SiteUserController {
@@ -42,10 +43,16 @@ public class SiteUserController {
     }
 
     @GetMapping("/dashboard")
-    public String getDashboardPage(){return "dashboard";}
+    public String getDashboardPage(Principal p, Model m){
+        SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        List<SiteUser> sellers = siteUser.getSellers();
+        m.addAttribute("sellers", sellers);
 
-    @GetMapping("/newListing")
-    public String getNewListing(){return "listing";}
+        return "dashboard";
+    }
+
+//    @GetMapping("/newListing")
+//    public String getNewListing(){return "listing";}
 
     @PostMapping("/signup")
     public RedirectView createUser(String username, String password, String firstName, String lastName){
@@ -57,17 +64,21 @@ public class SiteUserController {
     }
 
     @PostMapping("/newListing")
-    public RedirectView createListing(String address, String price, String date, String sellerUserName, String password, Principal p){
-        SiteUser agent = siteUserRepository.findByUsername(p.getName());
-        String hashedPW = passwordEncoder.encode(password);
-        SiteUser newUser = new SiteUser("Jon", "Snow", sellerUserName, hashedPW, "seller", "5554443333", "abc@gmail.com", "Abc Street", "Offer up", "272736", "a seller", agent);
-        siteUserRepository.save(newUser);
-        authWithHttpServletRequest(sellerUserName, password);
-        Property newProperty = new Property(address, Float.parseFloat(price), newUser);
+    public RedirectView createListing(String address, String price, String date, String sellerUserName, String password, String accountStatus, Principal p){
+        boolean status = Boolean.parseBoolean(accountStatus);
+        if(!status){
+            SiteUser agent = siteUserRepository.findByUsername(p.getName());
+            String hashedPW = passwordEncoder.encode(password);
+            SiteUser newSeller = new SiteUser("Jon", "Snow", sellerUserName, hashedPW, "seller", "5554443333", "abc@gmail.com", "Abc Street", "Offer up", "272736", "a seller", agent);
+            siteUserRepository.save(newSeller);
+        }
+        SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
+        Property newProperty = new Property(address, Float.parseFloat(price), seller);
         propertyRepository.save(newProperty);
         return new RedirectView("/dashboard");
     }
 
+    //This method signs the user in, however, if there is already a user signed-in then the method returns an exception, i.e., "printStackTrace()", which is seen in red in the run time feed
     public void authWithHttpServletRequest(String username, String password){
         try {
             request.login(username, password);

@@ -6,7 +6,41 @@
 </head>
 <body>
 <h2>Dashboard</h2>
+</form>
+<form action ="/newListing" method="get">
+    <fieldset>
+        <input type="hidden" name="accountStatus" th:value="${false}">
+        <input type="submit" value="New Listing"/>
+    </fieldset>
+</form>
 <a href="/newListing">New Listing</a>
+<div>
+    <ul th:each="seller : ${sellers}">
+        <form action ="/deletePost" method="post">
+            <fieldset>
+                <input type="hidden" name="body" th:value="${seller.username}">
+                <input type="submit" value="X"/>
+            </fieldset>
+        </form>
+        <form action ="/newListing" method="get">
+            <fieldset>
+                <input type="hidden" name="username" th:value="${seller.username}">
+                <input type="hidden" name="accountStatus" th:value="${true}">
+                <input type="submit" value="New Listing"/>
+            </fieldset>
+        </form>
+        <li th:text="'User name: ' + ${seller.username}"></li>
+        <li>
+            <div>
+                <ul th:each="property : ${seller.properties}">
+                    <li th:text="'Address: ' + ${property.address}"></li>
+                    <li th:text="'Price: ' + ${property.price}"></li>
+                    <br>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
 <!--<table>-->
 <!--    <th>-->
 <!--    <tr>-->
