@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -49,6 +50,21 @@ public class SiteUserController {
         m.addAttribute("sellers", sellers);
 
         return "dashboard";
+    }
+
+    @GetMapping("/offer")
+    public String getOffer(Principal p, Model m){
+        SiteUser agent = siteUserRepository
+                .findByUsername(p.getName());
+        m.addAttribute("username", p.getName());
+        ArrayList<String> addresses = new ArrayList<>();
+        for (SiteUser seller : agent.getSellers()){
+            for(Property property : seller.getProperties()){
+                addresses.add(property.getAddress());
+            }
+        }
+        m.addAttribute("addresses", addresses);
+        return "offer";
     }
 
 //    @GetMapping("/newListing")
