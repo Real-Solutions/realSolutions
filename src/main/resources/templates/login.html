@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="/css/grid.css">
     <!-- CSS only -->
@@ -8,6 +11,7 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Login</title>
 </head>
+
 <body>
 
     <header>
@@ -16,35 +20,38 @@
 
 
     <main>
+        <div class="m-4">
 
-<div class="login">
-    <form action="/login" method="post">
-        <div class="row g-3">
-            <div class="mb-3 col">
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="username"
-                    required>
-            </div>
-            <div class="mb-3 col">
-                <input type="password" class="form-control" placeholder="Password" aria-label="Password" name="password"
-                    required>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-            <div class="alert alert-light" role="alert">
-                <a href="/signup">No Account? Sign up!</a>
-            </div>
+            <form action="/login" method="post">
+                <!-- Begin First Row of form field -->
+                <div class="row g-3">
+                    <div class="mb-3 col-md-auto">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                            name="username" required>
+                    </div>
+                    <div class="mb-3 col-md-auto">
+                        <input type="password" class="form-control" placeholder="Password" aria-label="Password"
+                            name="password" required>
+                    </div>
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <a href="/signup">No Account? Sign up!</a>
+                    </div>
+                </div>
+                <!-- End First Row of form field -->
+            </form>
         </div>
-    </form>
-</div>
 
-</main>
+    </main>
 
     <div class="lside">Lside</div>
     <div class="rside">Rside</div>
-    
-    
-    
-    <footer>Footer</footer>
+
+
+
+    <footer>
+        <div th:replace="/fragments/footer :: body"></div>
+    </footer>
 </body>
+
 </html>

@@ -4,6 +4,8 @@
 <head>
 
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="/css/grid.css">
     <!-- CSS only -->
@@ -21,54 +23,122 @@
 
 
 
-    <main>
-      <h1 th:text="${status}"></h1>
-      <h1 th:if="${status.equals(true)}" th:text="${username}"></h1>
-      <form action="/newListing" method="Post">
-        <fieldset>
-          <legend>Create New Listing</legend>
-          <label>Address</label>
-          <input type="text" name="address" required>
-          <br>
-          <label>Price</label>
-          <input type="text" name="price" required>
-          <br>
-          <label>Initial Listing</label>
-          <input type="date" name="date" required>
-          <br>
-          <br>
-          <div th:if="${status.equals(false)}">
-            <label>Create Account for Seller</label>
-            <br>
-            <label>Seller's Username</label>
-            <input type="text" name="sellerUserName" required>
-            <input type="hidden" name="phoneNumber" required>
-            <input type="hidden" name="email" required>
-            <input type="hidden" name="accountStatus" th:value="${status}">
-            <br>
-            <label>Seller's Password</label>
-            <input type="password" name="password" required>
-            <br>
-            <br>
-            <input type="submit" value="Create Listing and Create Seller Account">
+  <main>
+    <h1 th:text="${status}"></h1>
+    <h1 th:if="${status.equals(true)}" th:text="${username}"></h1>
+
+
+
+    <!-- Begin New Listing Form -->
+
+    <div class="m-4">
+      <form action="/newListing" method="post">
+        <legend>Create New Listing</legend>
+        <!-- Begin First Row of form fields -->
+        <div class="row g-3 mb-3">
+          <div class="mb-3 col-md-auto">
+
+            <input type="text" class="form-control" placeholder="Address" aria-label="Address" name="address" required>
           </div>
-          <div th:if="${status.equals(true)}">
-            <input type="hidden" name="accountStatus" th:value="${status}">
-            <input type="hidden" name="sellerUserName" th:value="${username}">
-            <input type="submit" value="Create Listing">
+          <div class="mb-3 col-md-auto">
+
+            <input type="number" class="form-control" placeholder="Price" aria-label="Price" name="price" required>
           </div>
-        </fieldset>
+
+          <div class="mb-3 col-md-auto">
+
+            <input type="date" class="form-control" placeholder="Listing Live Date" aria-label="Listing Live Date"
+              name="date" required>
+          </div>
+
+        </div>
+        <!-- End First Row of form fields -->
+       
+        <div th:if="${status.equals(false)}">
+          <legend>Create Account for Seller</legend>
+          <br>
+        
+          <!-- Begin second row of form fields -->
+          <div class="row align-items-center g-3">
+            <div class="mb-3 col-md-auto">
+
+              <input type="text" class="form-control" placeholder="Seller's Username" aria-label="Seller's Username"
+                name="sellerUserName" required>
+              <input type="hidden" name="phoneNumber" required>
+              <input type="hidden" name="email" required>
+              <input type="hidden" name="accountStatus" th:value="${status}">
+            </div>
+            <div class="mb-3 col-md-auto">
+
+              <input type="password" class="form-control" placeholder="Seller's Password" aria-label="Seller's Password" name="password"
+                required>
+            </div>
+            <div class="mb-3 col-md-auto">
+
+              <input class="btn btn-primary" type="submit" value="Create Listing and Seller Account">
+             
+            </div>
+            <div th:if="${status.equals(true)}">
+              <input type="hidden" name="accountStatus" th:value="${status}">
+              <input type="hidden" name="sellerUserName" th:value="${username}">
+              <input type="submit" value="Create Listing">
+            </div>
+          </div>
+          <!-- End second row of form fields -->
       </form>
+    </div>
 
-    </main>
+    <!-- End New Listing Form -->
 
 
-    <div class="lside">Lside</div>
-    <div class="rside">Rside</div>
-    
-    
-    
-    <footer>Footer</footer>
+<!-- Begin OLD listing form -->
+    <!-- <form action="/newListing" method="Post">
+      <fieldset>
+        <legend>Create New Listing</legend>
+        <label>Address</label>
+        <input type="text" name="address" required>
+        <br>
+        <label>Price</label>
+        <input type="text" name="price" required>
+        <br>
+        <label>Initial Listing</label>
+        <input type="date" name="date" required>
+        <br>
+        <br>
+        <div th:if="${status.equals(false)}">
+          <label>Create Account for Seller</label>
+          <br>
+          <label>Seller's Username</label>
+          <input type="text" name="sellerUserName" required>
+          <input type="hidden" name="phoneNumber" required>
+          <input type="hidden" name="email" required>
+          <input type="hidden" name="accountStatus" th:value="${status}">
+          <br>
+          <label>Seller's Password</label>
+          <input type="password" name="password" required>
+          <br>
+          <br>
+          <input type="submit" value="Create Listing and Create Seller Account">
+        </div>
+        <div th:if="${status.equals(true)}">
+          <input type="hidden" name="accountStatus" th:value="${status}">
+          <input type="hidden" name="sellerUserName" th:value="${username}">
+          <input type="submit" value="Create Listing">
+        </div>
+      </fieldset>
+    </form> -->
+<!-- End OLD listing form -->
+  </main>
+
+
+  <div class="lside">Lside</div>
+  <div class="rside">Rside</div>
+
+
+
+  <footer>
+    <div th:replace="/fragments/footer :: body"></div>
+  </footer>
 
 
 </body>
