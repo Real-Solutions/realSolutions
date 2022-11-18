@@ -6,9 +6,9 @@ body {
   display: grid;
   grid-template-areas:
     'header header header header'
-    'lside content content rside'
+    'lside main main rside'
     'footer footer footer footer';
-  grid-template-rows: minmax(50px, 150px) 1fr 1fr;
+  grid-template-rows: 150px 1fr 50px;
   grid-template-columns: 1fr 2fr 2fr 1fr;
 
 }
@@ -18,8 +18,8 @@ header,
 footer,
 main,
 content,
-lside,
-rside {
+.lside,
+.rside {
   background-color: steelblue;
   color: #fff;
   padding: 20px;
@@ -34,14 +34,14 @@ header {
 
 
 main {
-  grid-area: content;
+  grid-area: main;
 }
 
-lside {
+.lside {
   grid-area: lside;
 }
 
-rside {
+.rside {
   grid-area: rside;
 }
 
