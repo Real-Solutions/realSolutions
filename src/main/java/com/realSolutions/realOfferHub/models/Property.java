@@ -3,6 +3,7 @@ package com.realSolutions.realOfferHub.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Property {
@@ -17,6 +18,9 @@ public class Property {
     @ManyToOne
     SiteUser mySeller;
 
+    @OneToMany(mappedBy = "myProperty")
+    List<Offer> offers;
+
     protected Property() {
     }
 
@@ -24,6 +28,10 @@ public class Property {
         this.address = address;
         this.price = price;
         this.mySeller = mySeller;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
     }
 
     public Long getId() {
