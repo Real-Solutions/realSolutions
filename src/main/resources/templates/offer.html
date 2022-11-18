@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
 
       <div class="left">
 
-          <form>
+          <form action="/offer" th:method="get">
             <fieldset>
               <legend>Offer Submission Form</legend>
             <div class="form-group">
@@ -35,9 +35,7 @@
               <select class="form-control" id="property-address" placeholder="Property Address" aria-label="Property Address">
 
                 <option selected>Choose...</option>
-                <option th:each="address : ${addresses}" th:value="${address}"></option>
-  
-  
+                <option th:each="address : ${addresses}" th:text="${address}"></option>
 
               </select>
             </div>

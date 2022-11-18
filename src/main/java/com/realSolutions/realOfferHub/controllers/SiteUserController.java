@@ -57,13 +57,13 @@ public class SiteUserController {
         SiteUser agent = siteUserRepository
                 .findByUsername(p.getName());
         m.addAttribute("username", p.getName());
-        m.addAttribute("properties", agent.getSellers());
         ArrayList<String> addresses = new ArrayList<>();
         for (SiteUser seller : agent.getSellers()){
             for(Property property : seller.getProperties()){
                 addresses.add(property.getAddress());
             }
         }
+        m.addAttribute("addresses", addresses);
         return "offer";
     }
 
