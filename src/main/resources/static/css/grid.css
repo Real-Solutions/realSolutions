@@ -5,31 +5,28 @@ body {
 
   display: grid;
   grid-template-areas:
-    'logo header header header'
+    'header header header header'
     'lside content content rside'
     'footer footer footer footer';
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: minmax(50px, 150px) 1fr 1fr;
   grid-template-columns: 1fr 2fr 2fr 1fr;
 
 }
 
-logo,
+
 header,
 footer,
 main,
 content,
 lside,
-rside,
-nav {
+rside {
   background-color: steelblue;
   color: #fff;
   padding: 20px;
   border: skyblue 1px solid;
 }
 
-logo {
-  grid-area: logo;
-}
+
 
 header {
   grid-area: header;
