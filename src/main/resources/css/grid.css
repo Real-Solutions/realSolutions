@@ -1,0 +1,53 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    'logo header header header'
+    'lside content content rside'
+    'footer footer footer footer';
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+
+}
+
+logo,
+header,
+footer,
+main,
+content,
+lside,
+rside,
+nav {
+  background-color: steelblue;
+  color: #fff;
+  padding: 20px;
+  border: skyblue 1px solid;
+}
+
+logo {
+  grid-area: logo;
+}
+
+header {
+  grid-area: header;
+}
+
+
+main {
+  grid-area: content;
+}
+
+lside {
+  grid-area: lside;
+}
+
+rside {
+  grid-area: rside;
+}
+
+footer {
+  grid-area: footer;
+}
