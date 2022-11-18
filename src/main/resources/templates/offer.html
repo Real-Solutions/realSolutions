@@ -24,7 +24,7 @@
 
       <div class="left">
 
-          <form>
+          <form action="/offer" th:method="get">
             <fieldset>
               <legend>Offer Submission Form</legend>
             <div class="form-group">
@@ -32,9 +32,7 @@
               <select class="form-control" id="property-address" placeholder="Property Address" aria-label="Property Address">
 
                 <option selected>Choose...</option>
-                <option th:each="address : ${addresses}" th:value="${address}"></option>
-  
-  
+                <option th:each="address : ${addresses}" th:text="${address}"></option>
 
               </select>
             </div>
@@ -58,7 +56,7 @@
               </select>
             </div>
            
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button  type="submit" value="Submit Offer" class="btn btn-primary">Submit</button>
           </fieldset>
           </form>
 
