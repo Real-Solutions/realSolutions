@@ -72,19 +72,19 @@ Ensure sellers and agents can see each others comments and messages for each off
 
 ## Wireframes
 
-![Login Page](src/main/resources/images/login-page.png)
-![Dashboard](src/main/resources/images/dashboard.png)
-![New Listing Page](src/main/resources/images/new-listing-view.png)
-![Listings View](src/main/resources/images/listings-view.png)
-![Offer Details View](src/main/resources/images/seller-offer-details.png)
-![All Offers View](src/main/resources/images/all-offers-view.png)
-![Communication View](src/main/resources/images/communication-view.png)
-![Offer Submission Page](src/main/resources/images/offer-submission-page.png)
-![Site Structure](src/main/resources/images/site-structure.png)
+![Login Page](src/main/resources/static/images/login-page.png)
+![Dashboard](src/main/resources/static/images/dashboard.png)
+![New Listing Page](src/main/resources/static/images/new-listing-view.png)
+![Listings View](src/main/resources/static/images/listings-view.png)
+![Offer Details View](src/main/resources/static/images/seller-offer-details.png)
+![All Offers View](src/main/resources/static/images/all-offers-view.png)
+![Communication View](src/main/resources/static/images/communication-view.png)
+![Offer Submission Page](src/main/resources/static/images/offer-submission-page.png)
+![Site Structure](src/main/resources/static/images/site-structure.png)
 
 ## Domain Model
 
-![Model 1](src/main/resources/images/models.png)
-![Model 2](src/main/resources/images/model2.png)
-![Model 3](src/main/resources/images/model3.png)
-![Model 4](src/main/resources/images/model4.png)
+![Model 1](src/main/resources/static/images/models.png)
+![Model 2](src/main/resources/static/images/model2.png)
+![Model 3](src/main/resources/static/images/model3.png)
+![Model 4](src/main/resources/static/images/model4.png)
