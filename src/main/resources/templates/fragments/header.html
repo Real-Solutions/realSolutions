@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
       
         <a class="btn btn-link" href="/login" role="button" th:if="${siteUser == null}">Login</a>
         <a class="btn btn-link" href="/logout" role="button" th:if="${siteUser != null}">Logout</a>
-        <a class="btn btn-primary" href="/signup" role="button" th:if="${siteUser == null}">Sign up</a>
+        <a class="btn btn-primary" href="/signup" role="button" sec:authorize= "isAuthenticated()">Hello</a>
      
       </div>
     </div>
