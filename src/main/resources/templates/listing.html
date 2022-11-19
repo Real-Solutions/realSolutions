@@ -53,11 +53,11 @@
 
         </div>
         <!-- End First Row of form fields -->
-       
+
         <div th:if="${status.equals(false)}">
           <legend>Create Account for Seller</legend>
           <br>
-        
+
           <!-- Begin second row of form fields -->
           <div class="row align-items-center g-3">
             <div class="mb-3 col-md-auto">
@@ -70,28 +70,29 @@
             </div>
             <div class="mb-3 col-md-auto">
 
-              <input type="password" class="form-control" placeholder="Seller's Password" aria-label="Seller's Password" name="password"
-                required>
+              <input type="password" class="form-control" placeholder="Seller's Password" aria-label="Seller's Password"
+                name="password" required>
             </div>
             <div class="mb-3 col-md-auto">
 
               <input class="btn btn-primary" type="submit" value="Create Listing and Seller Account">
-             
-            </div>
-            <div th:if="${status.equals(true)}">
-              <input type="hidden" name="accountStatus" th:value="${status}">
-              <input type="hidden" name="sellerUserName" th:value="${username}">
-              <input type="submit" value="Create Listing">
+
             </div>
           </div>
-          <!-- End second row of form fields -->
+        </div>
+        <div th:if="${status.equals(true)}">
+          <input type="hidden" name="accountStatus" th:value="${status}">
+          <input type="hidden" name="sellerUserName" th:value="${username}">
+          <input class="btn btn-primary" type="submit" value="Create Listing">
+        </div>
+        <!-- End second row of form fields -->
       </form>
     </div>
 
     <!-- End New Listing Form -->
 
 
-<!-- Begin OLD listing form -->
+    <!-- Begin OLD listing form -->
     <!-- <form action="/newListing" method="Post">
       <fieldset>
         <legend>Create New Listing</legend>
@@ -105,6 +106,8 @@
         <input type="date" name="date" required>
         <br>
         <br>
+       
+       
         <div th:if="${status.equals(false)}">
           <label>Create Account for Seller</label>
           <br>
@@ -120,14 +123,18 @@
           <br>
           <input type="submit" value="Create Listing and Create Seller Account">
         </div>
+        
+        
         <div th:if="${status.equals(true)}">
           <input type="hidden" name="accountStatus" th:value="${status}">
           <input type="hidden" name="sellerUserName" th:value="${username}">
           <input type="submit" value="Create Listing">
         </div>
+
+
       </fieldset>
     </form> -->
-<!-- End OLD listing form -->
+    <!-- End OLD listing form -->
   </main>
 
 
