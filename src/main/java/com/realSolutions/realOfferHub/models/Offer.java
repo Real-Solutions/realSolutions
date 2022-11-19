@@ -66,4 +66,8 @@ public class Offer {
     public boolean isContingentBuyer() {
         return contingentBuyer;
     }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
 }
