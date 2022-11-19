@@ -13,6 +13,9 @@ body {
 
 }
 
+body {
+  color: black;
+}
 
 header,
 footer,
@@ -21,7 +24,7 @@ content,
 .lside,
 .rside {
   background-color: steelblue;
-  color: #fff;
+  color: #000000;
   padding: 20px;
   border: skyblue 1px solid;
 }

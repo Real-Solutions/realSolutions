@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/grid.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Real Offer Hub: New Listing Card</title>
+</head>
+
+<body>
+
+  <!-- Begin For Each Loop -->
+  <div th:if="${siteUser.role.equals('seller')}">
+
+    <!-- Begin Accordion -->
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item" th:each="offer : ${offers}">
+        <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${offer.id}">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            th:data-bs-target="'#panelsStayOpen-collapse' + ${offer.id}" aria-expanded="false"
+            th:aria-controls="'panelsStayOpen-collapse' + ${offer.id}" th:text="'Offer Price: ' + ${offer.offerPrice}">
+            Accordion Item #1
+          </button>
+
+        </h2>
+        <div th:id="'panelsStayOpen-collapse' + ${offer.id}" class="accordion-collapse collapse show"
+          th:aria-labelledby="'panelsStayOpen-heading' + ${offer.id}">
+          <div class="accordion-body">
+
+            <div class="row">
+              <!-- Begin First Left Side Box -->
+              <div class="col">
+                <div class="card card-body">
+                  <table class="table">
+
+                    <tbody>
+
+                      <tr>
+                        <td><strong>Down Payment:</strong></td>
+                        <td th:text="${offer.downPayment}"></td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Earnest Money:</strong></td>
+                        <td>Earnest Money</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Loan Type:</strong></td>
+                        <td>Conventional</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- End First Left Side Box -->
+              <!-- Begin First Right Side Box -->
+              <div class="col">
+                <div class="card card-body">
+
+                  <table class="table">
+
+                    <tbody>
+
+                      <tr>
+                        <td><strong>Buyer's Agent:</strong></td>
+                        <td>Buyer's Agent</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Response Date:</strong></td>
+                        <td>Response Date</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Response Time:</strong></td>
+                        <td>Response Time</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+
+                </div>
+              </div>
+              <!-- End First Right Side Box -->
+            </div>
+
+
+            <!-- Begin Box -->
+            <div class="row mt-5">
+              <div class="col">
+                <div class="card card-body">
+                  <!-- Begin Message Form -->
+                  <form action="/newMessage" method="post">
+                    <fieldset>
+                      <label>Message</label>
+                      <!-- Begin second row of form fields -->
+                      <div class="row align-items-center g-2">
+                        <div class="mb-3 col-lg-auto">
+
+                          <input type="text" class="form-control" placeholder="Message" aria-label="Message" name="body"
+                            required>
+                        </div>
+
+                        <div class="mb-3 col-lg-auto">
+                          <input type="hidden" name="id" th:value="${offer.id}">
+                          <input class="btn btn-primary" type="submit" value="Submit">
+
+
+                        </div>
+                      </div>
+                      <!-- End second row of form fields -->
+                    </fieldset>
+                  </form>
+                  <!-- End Message Form -->
+                </div>
+              </div>
+            </div>
+            <!-- End Box -->
+            <!-- Begin First Inner Accordion -->
+            <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    All Messages
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+
+                    <ul th:each="message : ${offer.messages}">
+                      <li th:text="'Body: ' + ${message.body}"></li>
+                      <li th:text="'Date: ' + ${message.date}"></li>
+                      <br>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <!-- End First Inner Accordion -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Accordion -->
+
+  </div>
+
+  <!-- End For Each Loop -->
+
+  <!-- Begin OLD  -->
+
+  <!-- <main th:if="${siteUser.role.equals('seller')}">
+    <div>
+      <ul th:each="offer : ${offers}">
+        <li th:text="'Offer Price: ' + ${offer.offerPrice}"></li>
+        <li th:text="'Down Payment: ' + ${offer.downPayment}"></li>
+        <form action="/newMessage" method="post">
+          <fieldset>
+            <label>Message</label>
+            <input type="text" name="body" required>
+            <input type="hidden" name="id" th:value="${offer.id}">
+            <input type="submit" value="Send" />
+          </fieldset>
+        </form>
+        <ul th:each="message : ${offer.messages}">
+          <li th:text="'Body: ' + ${message.body}"></li>
+          <li th:text="'Date: ' + ${message.date}"></li>
+          <br>
+        </ul>
+        <br>
+      </ul>
+    </div>
+  </main> -->
+
+  <!-- End OLD -->
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
