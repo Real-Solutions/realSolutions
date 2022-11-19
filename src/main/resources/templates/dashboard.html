@@ -18,7 +18,7 @@
         <div th:replace="/fragments/header :: body"></div>
     </header>
 
-    <main>
+    <main th:if="${siteUser.role.equals('agent')}">
         <h2>Dashboard</h2>
         </form>
         <form action="/newListing" method="get">
@@ -56,17 +56,17 @@
                                     <form action="/newMessage" method="post">
                                         <fieldset>
                                             <label>Message</label>
-                                            <input type="text" name="body">
+                                            <input type="text" name="body" required>
                                             <input type="hidden" name="id" th:value="${offer.id}">
                                             <input type="submit" value="Send" />
                                         </fieldset>
+                                    </form>
                                         <ul th:each="message : ${offer.messages}">
                                             <li th:text="'Name: ' + ${seller.firstName}"></li>
                                             <li th:text="'Body: ' + ${message.body}"></li>
                                             <li th:text="'Date: ' + ${message.date}"></li>
                                             <br>
                                         </ul>
-                                    </form>
                                     <br>
                                 </ul>
                             </div>
@@ -94,6 +94,29 @@
         <!--</tbody>-->
         <!--</table>-->
 
+    </main>
+
+    <main th:if="${siteUser.role.equals('seller')}">
+        <div>
+            <ul th:each="offer : ${offers}">
+                <li th:text="'Offer Price: ' + ${offer.offerPrice}"></li>
+                <li th:text="'Down Payment: ' + ${offer.downPayment}"></li>
+                <form action="/newMessage" method="post">
+                    <fieldset>
+                        <label>Message</label>
+                        <input type="text" name="body" required>
+                        <input type="hidden" name="id" th:value="${offer.id}">
+                        <input type="submit" value="Send" />
+                    </fieldset>
+                </form>
+                <ul th:each="message : ${offer.messages}">
+                    <li th:text="'Body: ' + ${message.body}"></li>
+                    <li th:text="'Date: ' + ${message.date}"></li>
+                    <br>
+                </ul>
+                <br>
+            </ul>
+        </div>
     </main>
 
     <div class="lside">Lside</div>
