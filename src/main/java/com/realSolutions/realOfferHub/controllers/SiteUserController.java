@@ -1,5 +1,6 @@
 package com.realSolutions.realOfferHub.controllers;
 
+import com.realSolutions.realOfferHub.models.Offer;
 import com.realSolutions.realOfferHub.models.Property;
 import com.realSolutions.realOfferHub.models.SiteUser;
 import com.realSolutions.realOfferHub.repositories.PropertyRepository;
@@ -46,9 +47,17 @@ public class SiteUserController {
     @GetMapping("/dashboard")
     public String getDashboardPage(Principal p, Model m){
         SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        m.addAttribute("siteUser", siteUser);
+        if(siteUser.getRole().equals("seller")) {
+            ArrayList<Offer> offers = new ArrayList<>();
+            for(Property property : siteUser.getProperties()) {
+                offers.addAll(property.getOffers());
+            }
+            m.addAttribute("offers", offers);
+            return "dashboard";
+        }
         List<SiteUser> sellers = siteUser.getSellers();
         m.addAttribute("sellers", sellers);
-
         return "dashboard";
     }
 
