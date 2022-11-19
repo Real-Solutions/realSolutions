@@ -48,7 +48,6 @@ public class SiteUserController {
         SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
         List<SiteUser> sellers = siteUser.getSellers();
         m.addAttribute("sellers", sellers);
-
         return "dashboard";
     }
 
