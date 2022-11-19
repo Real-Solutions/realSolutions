@@ -43,8 +43,9 @@
       </form>
       <div class="d-flex align-items-center">
       
-        <a class="btn btn-link" href="/login" role="button">Login</a>
-        <a class="btn btn-primary" href="/signup" role="button">Sign up</a>
+        <a class="btn btn-link" href="/login" role="button" th:if="${siteUser == null}">Login</a>
+        <a class="btn btn-link" href="/logout" role="button" th:if="${siteUser != null}">Logout</a>
+        <a class="btn btn-primary" href="/signup" role="button" th:if="${siteUser == null}">Sign up</a>
      
       </div>
     </div>
