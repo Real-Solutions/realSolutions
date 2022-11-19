@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/grid.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <div th:replace="/fragments/header :: body"></div>
+</header>
+<main>
+    <img class="error-image" src="/images/error-img.jpg" alt="error-img" width="800" height="600">
+    <h2>UH OH... There's Been a Glitch in the Matrix!</h2>
+    <div>
+        <h6 th:text="${status}"></h6>
+        <h6 th:text="${error}"></h6>
+        <h6 th:text="${message}"></h6>
+    </div>
+</main>
+<footer></footer>
+</body>
+</html>

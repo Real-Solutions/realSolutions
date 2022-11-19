@@ -45,8 +45,7 @@
       
         <a class="btn btn-link" href="/login" role="button" th:if="${siteUser == null}">Login</a>
         <a class="btn btn-link" href="/logout" role="button" th:if="${siteUser != null}">Logout</a>
-        <a class="btn btn-primary" href="/signup" role="button" sec:authorize= "isAuthenticated()">Hello</a>
-     
+        <a class="btn btn-primary" href="/signup" role="button" sec:authorize="${!isAuthenticated()}">Sign Up</a>
       </div>
     </div>
   </div>
