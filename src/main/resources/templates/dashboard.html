@@ -95,7 +95,7 @@
 
     </main>
 
-    <main th:if="${siteUser.role.equals('seller')}">
+    <!-- <main th:if="${siteUser.role.equals('seller')}">
         <div>
             <ul th:each="offer : ${offers}">
                 <li th:text="'Offer Price: ' + ${offer.offerPrice}"></li>
@@ -116,6 +116,10 @@
                 <br>
             </ul>
         </div>
+    </main> -->
+
+    <main th:if="${siteUser.role.equals('seller')}">
+        <div th:replace="/fragments/new-seller-offer-card :: body"></div>
     </main>
 
     <div class="lside">Lside</div>
