@@ -1,6 +1,7 @@
 package com.realSolutions.realOfferHub.configs;
 
 import com.realSolutions.realOfferHub.models.SiteUser;
+import com.realSolutions.realOfferHub.repositories.SiteUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    SiteUserRepository siteUserRepository;
 
     @Autowired
     SiteUserDetailsServiceImpl siteUserDetailsService;
