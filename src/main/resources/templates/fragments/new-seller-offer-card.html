@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/grid.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link rel="stylesheet" href="/css/fav-button.css">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -18,7 +20,7 @@
 
     <!-- Begin Accordion -->
     <div class="accordion" id="accordionPanelsStayOpenExample">
-      <div class="accordion-item" th:each="offer : ${offers}">
+      <div class="accordion-item mb-3" th:each="offer : ${offers}">
         <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${offer.id}">
           <button class="accordion-button" type="button" data-bs-toggle="collapse"
             th:data-bs-target="'#panelsStayOpen-collapse' + ${offer.id}" aria-expanded="false"
@@ -32,10 +34,25 @@
           <div class="accordion-body">
 
             <div class="row">
+
+
+<!-- Begin Box -->
+<div class="row mt-3">
+  <div class="col">
+    <div class="card card-body border border-0">
+      <!-- Begin Favorite Icon -->
+    <!-- <div th:replace="/fragments/fav-button :: body"></div> -->
+      <!-- End Favorite Icon -->
+    </div>
+  </div>
+</div>
+<!-- End Box -->
+
+
               <!-- Begin First Left Side Box -->
               <div class="col">
                 <div class="card card-body">
-                  <table class="table">
+                  <table class="table-offer-details-1">
 
                     <tbody>
 
@@ -46,13 +63,37 @@
 
                       <tr>
                         <td><strong>Earnest Money:</strong></td>
-                        <td>Earnest Money</td>
+                        <td>$5,000</td>
                       </tr>
 
                       <tr>
                         <td><strong>Loan Type:</strong></td>
                         <td>Conventional</td>
                       </tr>
+
+                      <tr>
+                        <td><strong>Waiving Appraisal:</strong></td>
+                        <td>Waiving Appraisal</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Buyer Contingency:</strong></td>
+                        <td>Buyer Contingency</td>
+                      </tr>
+
+
+
+                      <tr>
+                        <td><strong>Home Warranty:</strong></td>
+                        <td>Home Warranty</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Inspection Period:</strong></td>
+                        <td>Inspection Period</td>
+                      </tr>
+
+
 
                     </tbody>
                   </table>
@@ -63,9 +104,24 @@
               <div class="col">
                 <div class="card card-body">
 
-                  <table class="table">
+                  <table class="table-offer-details-2">
 
                     <tbody>
+
+                      <tr>
+                        <td><strong>Seller Concessions:</strong></td>
+                        <td>Seller Concessions</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>Personal Property:</strong></td>
+                        <td>Personal Property</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>HOA:</strong></td>
+                        <td>HOA</td>
+                      </tr>
 
                       <tr>
                         <td><strong>Buyer's Agent:</strong></td>
@@ -82,6 +138,11 @@
                         <td>Response Time</td>
                       </tr>
 
+                      <tr>
+                        <td><strong>Close of Escrow</strong></td>
+                        <td>Close of Escrow</td>
+                      </tr>
+
                     </tbody>
                   </table>
 
@@ -92,6 +153,58 @@
             </div>
 
 
+
+
+            <!-- Begin Box -->
+            <!-- <div class="row mt-3">
+              <div class="col">
+                <div class="card card-body"> -->
+            <!-- Begin Offer Submission Comments Accordion -->
+            <div class="accordion accordion-comments mt-3" id="offerSubmissionComments">
+              <div class="accordion-item">
+                <h2 class="accordion-header" th:id="'comments-heading' + ${offer.id}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    th:data-bs-target="'#comments-collapse' + ${offer.id}" aria-expanded="false"
+                    th:aria-controls="'comments-collapse' + ${offer.id}">
+                    Offer Submission Comments
+                  </button>
+                </h2>
+                <div th:id="'comments-collapse' + ${offer.id}" class="accordion-collapse collapse"
+                  th:aria-labelledby="'comments-heading' + ${offer.id}" data-bs-parent="#offerSubmissionComments">
+                  <div class="accordion-body">
+
+                    Content
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <!-- End Offer Submission Comments Accordion -->
+            <!-- </div>
+              </div>
+            </div> -->
+            <!-- End Box -->
+
+
+            <!-- Begin Box -->
+            <div class="row mt-3">
+              <div class="col">
+                <div class="card card-body border border-0">
+                  <!-- Begin Mixed Style Button Group for Counter Accept Reject Offer Offer -->
+                  <div class="btn-group" role="group" aria-label="Counter Accept Reject Offer">
+                    <button type="button" class="btn btn-warning">Counter Offer</button>
+                    <button type="button" class="btn btn-success">Accept Offer</button>
+                    <button type="button" class="btn btn-danger">Reject Offer</button>
+                  </div>
+                  <!-- End Mixed Style Button Group for Counter Accept Reject Offer Offer -->
+                </div>
+              </div>
+            </div>
+            <!-- End Box -->
+
+
             <!-- Begin Box -->
             <div class="row mt-5">
               <div class="col">
@@ -99,16 +212,16 @@
                   <!-- Begin Message Form -->
                   <form action="/newMessage" method="post">
                     <fieldset>
-                      <label>Message</label>
+
                       <!-- Begin second row of form fields -->
                       <div class="row align-items-center g-2">
-                        <div class="mb-3 col-lg-auto">
+                        <div class="mb-3 mt-3 col">
 
                           <input type="text" class="form-control" placeholder="Message" aria-label="Message" name="body"
                             required>
                         </div>
 
-                        <div class="mb-3 col-lg-auto">
+                        <div class="mb-3 mt-3 col-auto">
                           <input type="hidden" name="id" th:value="${offer.id}">
                           <input class="btn btn-primary" type="submit" value="Submit">
 
@@ -123,24 +236,37 @@
               </div>
             </div>
             <!-- End Box -->
-            <!-- Begin First Inner Accordion -->
-            <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
+            <!-- Begin Message Accordion -->
+            <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
+                <h2 class="accordion-header" th:id="'flush-heading' + ${offer.id}">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    th:data-bs-target="'#flush-collapse' + ${offer.id}" aria-expanded="false"
+                    th:aria-controls="'flush-collapse' + ${offer.id}">
                     All Messages
                   </button>
                 </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                  data-bs-parent="#accordionFlushExample">
+                <div th:id="'flush-collapse' + ${offer.id}" class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body">
 
-                    <ul th:each="message : ${offer.messages}">
-                      <li th:text="'Body: ' + ${message.body}"></li>
-                      <li th:text="'Date: ' + ${message.date}"></li>
-                      <br>
-                    </ul>
+
+
+                    <!-- Begin Message Chat Timeline -->
+
+                    <div class="container" th:each="message : ${offer.messages}">
+                      <img src="images/profile-placeholder.png" alt="Avatar">
+                      <p th:text="'Body: ' + ${message.body}"></p>
+                      <span class="time-right" th:text="'Date: ' + ${message.date}"></span>
+                    </div>
+
+                    <div class="container darker">
+                      <img src="images/profile-placeholder.png" alt="Avatar" class="right">
+                      <p>Hey! I'm fine. Thanks for asking!</p>
+                      <span class="time-left">11:01</span>
+                    </div>
+
+                    <!-- End Message Chat Timeline -->
 
                   </div>
                 </div>
@@ -148,7 +274,7 @@
 
 
             </div>
-            <!-- End First Inner Accordion -->
+            <!-- End Message Accordion -->
 
 
           </div>
