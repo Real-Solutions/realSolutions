@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-<div th:replace="/fragments/meta-head :: head"></div>
+    <div th:replace="/fragments/meta-head :: head"></div>
 </head>
 
 <body>
@@ -12,6 +12,12 @@
     </header>
 
     <main th:if="${siteUser.role.equals('agent')}">
+        <div th:replace="/fragments/new-listing-card :: body"></div>
+    </main>
+
+    <!-- Start OLD Agent Main -->
+
+    <!-- <main th:if="${siteUser.role.equals('agent')}">
         <h2>Dashboard</h2>
         </form>
         <form action="/newListing" method="get">
@@ -54,12 +60,12 @@
                                             <input type="submit" value="Send" />
                                         </fieldset>
                                     </form>
-                                        <ul th:each="message : ${offer.messages}">
-                                            <li th:text="'Name: ' + ${seller.firstName}"></li>
-                                            <li th:text="'Body: ' + ${message.body}"></li>
-                                            <li th:text="'Date: ' + ${message.date}"></li>
-                                            <br>
-                                        </ul>
+                                    <ul th:each="message : ${offer.messages}">
+                                        <li th:text="'Name: ' + ${seller.firstName}"></li>
+                                        <li th:text="'Body: ' + ${message.body}"></li>
+                                        <li th:text="'Date: ' + ${message.date}"></li>
+                                        <br>
+                                    </ul>
                                     <br>
                                 </ul>
                             </div>
@@ -68,7 +74,10 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div> -->
+
+        <!-- END OLD Agent Main -->
+
         <!--<table>-->
         <!--    <th>-->
         <!--    <tr>-->
