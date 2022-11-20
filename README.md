@@ -88,3 +88,8 @@ Ensure sellers and agents can see each others comments and messages for each off
 ![Model 2](src/main/resources/static/images/model2.png)
 ![Model 3](src/main/resources/static/images/model3.png)
 ![Model 4](src/main/resources/static/images/model4.png)
+
+
+## Attribution
+
+- [Chat Bubbles](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_chat)
