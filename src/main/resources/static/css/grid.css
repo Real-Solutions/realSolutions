@@ -34,6 +34,15 @@ header {
   grid-area: header;
 }
 
+.error-image{
+
+}
+
+.error-message{
+      margin-left: 40px;
+      position: absolute;
+      font-size: 42px;
+}
 
 main {
   grid-area: main;
