@@ -3,12 +3,15 @@ package com.realSolutions.realOfferHub.controllers;
 import com.realSolutions.realOfferHub.models.Offer;
 import com.realSolutions.realOfferHub.models.Property;
 import com.realSolutions.realOfferHub.models.SiteUser;
+import com.realSolutions.realOfferHub.repositories.MessageRepository;
+import com.realSolutions.realOfferHub.repositories.OfferRepository;
 import com.realSolutions.realOfferHub.repositories.PropertyRepository;
 import com.realSolutions.realOfferHub.repositories.SiteUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -27,6 +30,12 @@ public class SiteUserController {
 
     @Autowired
     PropertyRepository propertyRepository;
+
+    @Autowired
+    OfferRepository offerRepository;
+
+    @Autowired
+    MessageRepository messageRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -85,6 +94,21 @@ public class SiteUserController {
         SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
         Property newProperty = new Property(address, Float.parseFloat(price), seller);
         propertyRepository.save(newProperty);
+        return new RedirectView("/dashboard");
+    }
+
+    @DeleteMapping("/deleteSeller")
+    public RedirectView deleteSeller(String id){
+        Long idL = Long.parseLong(id);
+        SiteUser siteUser = siteUserRepository.getReferenceById(idL);
+        for(Property property : siteUser.getProperties()){
+            for(Offer offer : property.getOffers()){
+                messageRepository.deleteAll(offer.getMessages());
+                offerRepository.delete(offer);
+            }
+            propertyRepository.delete(property);
+        }
+        siteUserRepository.delete(siteUser);
         return new RedirectView("/dashboard");
     }
 

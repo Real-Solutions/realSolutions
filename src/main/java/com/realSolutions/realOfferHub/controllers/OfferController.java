@@ -1,14 +1,17 @@
 package com.realSolutions.realOfferHub.controllers;
 
+import com.realSolutions.realOfferHub.models.Message;
 import com.realSolutions.realOfferHub.models.Offer;
 import com.realSolutions.realOfferHub.models.Property;
 import com.realSolutions.realOfferHub.models.SiteUser;
+import com.realSolutions.realOfferHub.repositories.MessageRepository;
 import com.realSolutions.realOfferHub.repositories.OfferRepository;
 import com.realSolutions.realOfferHub.repositories.PropertyRepository;
 import com.realSolutions.realOfferHub.repositories.SiteUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -27,6 +30,9 @@ public class OfferController {
 
     @Autowired
     OfferRepository offerRepository;
+
+    @Autowired
+    MessageRepository messageRepository;
 
     @GetMapping("/offer")
     public String getOffer(Principal p, Model m){
@@ -51,6 +57,15 @@ public class OfferController {
         boolean contingentBuyerb = !contingentBuyer.equals("no");
         Offer newOffer = new Offer(address, pricef, downPaymentf, contingentBuyerb, property);
         offerRepository.save(newOffer);
+        return new RedirectView("/dashboard");
+    }
+
+    @DeleteMapping("/deleteOffer")
+    public RedirectView deleteOffer(String id){
+        Long idL = Long.parseLong(id);
+        Offer offer = offerRepository.getReferenceById(idL);
+        messageRepository.deleteAll(offer.getMessages());
+        offerRepository.delete(offer);
         return new RedirectView("/dashboard");
     }
 }
