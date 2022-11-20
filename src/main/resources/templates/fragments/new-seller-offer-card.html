@@ -2,15 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/css/grid.css">
-  <link rel="stylesheet" href="/css/chat.css">
-  <link rel="stylesheet" href="/css/fav-button.css">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <title>Real Offer Hub: New Listing Card</title>
+<div th:replace="/fragments/meta-head :: head"></div>
 </head>
 
 <body>
@@ -36,17 +28,30 @@
             <div class="row">
 
 
-<!-- Begin Box -->
-<div class="row mt-3">
-  <div class="col">
-    <div class="card card-body border border-0">
-      <!-- Begin Favorite Icon -->
-    <!-- <div th:replace="/fragments/fav-button :: body"></div> -->
-      <!-- End Favorite Icon -->
-    </div>
-  </div>
-</div>
-<!-- End Box -->
+              <!-- Begin Box -->
+              <div class="row mt-1 mb-4">
+                <div class="col">
+                  <div class="card card-body border border-0 position-relative">
+
+                    <!-- Begin Offer Card Title Header -->
+                    <div class="position-absolute top-0 start-0">
+                      <h2 th:text="'Offer: ' + ${offer.offerPrice}"></h2>
+                    </div>
+                    <!-- End Offer Card Title Header -->
+
+
+                    <!-- Begin Favorite Icon -->
+                    <div class="position-absolute top-0 end-0">
+                      <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btn-check-outlined">Favorite</label><br>
+                    </div>
+                    <!-- End Favorite Icon -->
+
+
+                  </div>
+                </div>
+              </div>
+              <!-- End Box -->
 
 
               <!-- Begin First Left Side Box -->
