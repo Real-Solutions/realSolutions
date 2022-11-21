@@ -20,6 +20,8 @@ import org.unbescape.properties.PropertiesKeyEscapeLevel;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,7 +86,8 @@ public class SiteUserController {
     }
 
     @PostMapping("/newListing")
-    public RedirectView createListing(String firstName, String lastName, String phoneNumber, String email, String address, String homeAddress, String price, String date, String sellerUserName, String password, String accountStatus, Principal p){
+    public RedirectView createListing(String address, String price, String sellerUserName, String password, String accountStatus, Principal p, String initialPosting, String numberOfRooms, String numberOfBathrooms, String squareFootage, String yearBuilt) throws ParseException {
+
         boolean status = Boolean.parseBoolean(accountStatus);
         if(!status){
             SiteUser agent = siteUserRepository.findByUsername(p.getName());
@@ -93,7 +96,7 @@ public class SiteUserController {
             siteUserRepository.save(newSeller);
         }
         SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
-        Property newProperty = new Property(address, Float.parseFloat(price), seller);
+        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), new SimpleDateFormat("yyyy-MM-dd").parse(yearBuilt), seller);
         propertyRepository.save(newProperty);
         return new RedirectView("/dashboard");
     }
