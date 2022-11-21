@@ -23,7 +23,6 @@ public class SiteUser implements UserDetails {
     String role;
     String phoneNumber;
     String email;
-    String homeAddress;
     String brokerageName;
     String licenseNumber;
     String bio;
@@ -52,35 +51,6 @@ public class SiteUser implements UserDetails {
     protected SiteUser() {
     }
 
-    public SiteUser(String firstName, String lastName, String username, String password, String role, String phoneNumber, String email, String homeAddress, String brokerageName, String licenseNumber, String bio, SiteUser mySellerAgent) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.homeAddress = homeAddress;
-        this.brokerageName = brokerageName;
-        this.licenseNumber = licenseNumber;
-        this.bio = bio;
-        this.mySellerAgent = mySellerAgent;
-    }
-
-    public SiteUser(String firstName, String lastName, String username, String password, String role, String phoneNumber, String email, String homeAddress, String brokerageName, String licenseNumber, String bio) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.homeAddress = homeAddress;
-        this.brokerageName = brokerageName;
-        this.licenseNumber = licenseNumber;
-        this.bio = bio;
-    }
-
     public SiteUser(String firstName, String lastName, String username, String password, String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -93,6 +63,21 @@ public class SiteUser implements UserDetails {
         this.licenseNumber = licenseNumber;
         this.bio = bio;
     }
+
+    public SiteUser(String firstName, String lastName, String username, String password, String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio, SiteUser mySellerAgent) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.brokerageName = brokerageName;
+        this.licenseNumber = licenseNumber;
+        this.bio = bio;
+        this.mySellerAgent = mySellerAgent;
+    }
+
 
     public List<Property> getProperties() {
         return properties;
@@ -136,10 +121,6 @@ public class SiteUser implements UserDetails {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getHomeAddress() {
-        return homeAddress;
     }
 
     public String getBrokerageName() {
