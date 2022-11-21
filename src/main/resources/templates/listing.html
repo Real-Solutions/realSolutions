@@ -35,104 +35,137 @@
             <legend>Create New Listing</legend>
 
 
-            <!-- New Login -->
+            <!-- Begin New Property Listing Section -->
             <div class="form-floating mb-3">
-              <i class="icon fa-solid fa-user-tie fa-lg"></i>
+              <i class="icon fa-solid fa-house-user fa-lg"></i>
               <input type="text" class="form-control" id="floatingAddress" placeholder="address" name="address">
               <label for="floatingAddress">Property Address</label>
             </div>
 
             <div class="form-floating mb-3">
-              <i class="icon fa-solid fa-lock fa-lg"></i>
+              <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
               <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price">
               <label for="floatingPrice">List Price</label>
             </div>
 
-            <div class="form-floating mb-3"></div>
-            <i class="icon fa-solid fa-lock fa-lg"></i>
-            <input type="text" class="form-control" id="floatingListingDate" placeholder="listingDate" name="date">
-            <label for="floatingListingDate">Listing Date</label>
+            <div class="form-floating mb-3">
+              <i class="icon fa-regular fa-calendar-days fa-lg"></i>
+              <input type="date" class="form-control" id="floatingListingDate" placeholder="listingDate"
+                name="initialPosting">
+              <label for="floatingListingDate">Listing Date</label>
             </div>
+
+            <section>
+              <fieldset>
+                <legend>Property Details</legend>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-ruler fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingSquareFootage" placeholder="squareFootage"
+                    name="squareFootage">
+                  <label for="floatingSquareFootage">Square Footage</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-bed fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingNumberOfRooms" placeholder="numberOfRooms"
+                    name="numberOfRooms">
+                  <label for="floatingNumberOfRooms">Number of Rooms</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-bath fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingNumberOfBathrooms" placeholder="numberOfBathrooms"
+                    name="numberOfBathrooms">
+                  <label for="floatingNumberOfBathrooms">Number of Bathrooms</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-regular fa-calendar-days fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingYearBuilt" placeholder="yearBuilt"
+                    name="yearBuilt">
+                  <label for="floatingYearBuilt">Year Built</label>
+                </div>
+
+              </fieldset>
+            </section>
+            <!-- End New Property Listing Section -->
+
+            <!-- Begin New Seller Section -->
 
             <div th:if="${status.equals(false)}">
-              <legend>Create Account for Seller</legend>
-              <br>
+              <fieldset>
+                <p></p>
+                <legend>Create Account for Seller</legend>
+                <br>
 
-            <button type="submit" class="btn btn-primary">Login</button>
-            <!-- New Login -->
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-user fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingFirstName" placeholder="firstName"
+                    name="firstName">
+                  <label for="floatingFirstName">First Name</label>
+                </div>
 
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-user fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingLastName" placeholder="lastName" name="lastName">
+                  <label for="floatingLastName">Last Name</label>
+                </div>
 
-          </fieldset>
-        </form>
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-phone fa-lg"></i>
+                  <input type="phone" class="form-control" id="floatingPhone" placeholder="phone" name="phone">
+                  <label for="floatingPhone">Phone Number</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-envelope fa-lg"></i>
+                  <input type="email" class="form-control" id="floatingEmail" placeholder="email" name="email">
+                  <label for="floatingEmail">Email</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-user fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingsellerUserName" placeholder="sellerUserName"
+                    name="sellerUserName">
+                  <label for="floatingsellerUserName">Seller's Username</label>
+                  <input type="hidden" name="phoneNumber" required>
+                  <input type="hidden" name="email" required>
+                  <input type="hidden" name="accountStatus" th:value="${status}">
+                </div>
+
+                <div class="form-floating mb-3">
+                  <i class="icon fa-solid fa-lock fa-lg"></i>
+                  <input type="password" class="form-control" id="floatingSellerpassword" placeholder="password"
+                    name="password">
+                  <label for="floatingSellerpassword">Seller's Password</label>
+                </div>
+
+                <input class="btn btn-primary" type="submit" value="Create Listing and Seller Account">
+
+              </fieldset>
+            </div>
       </div>
-      <!-- End New Listing Form Container -->
+      <!-- End New Seller Section -->
 
 
 
-
-
-
-      <form action="/newListing" method="post">
-        <legend>Create New Listing</legend>
-        <!-- Begin First Row of form fields -->
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" placeholder="Address" aria-label="Address" name="address" required>
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" placeholder="Price" aria-label="Price" name="price" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="date" class="form-control" placeholder="Listing Live Date" aria-label="Listing Live Date"
-              name="date" required>
-          </div>
-
-        </div>
-        <!-- End First Row of form fields -->
-
-        <div th:if="${status.equals(false)}">
-          <legend>Create Account for Seller</legend>
-          <br>
-
-          <!-- Begin second row of form fields -->
-          <div class="row align-items-center g-3">
-            <div class="mb-3 col-md-auto">
-
-              <input type="text" class="form-control" placeholder="Seller's Username" aria-label="Seller's Username"
-                name="sellerUserName" required>
-              <input type="text" class="form-control" placeholder="Seller's First Name" aria-label="Seller's First Name" name="firstName" required>
-              <input type="text" class="form-control" placeholder="Seller's Last Name" aria-label="Seller's Last Name" name="lastName" required>
-              <input type="text" class="form-control" placeholder="Seller's Phone Number" aria-label="Seller's Phone Number" name="phoneNumber" required>
-              <input type="text" class="form-control" placeholder="Seller's Email" aria-label="Seller's Email" name="email" required>
-              <input type="text" class="form-control" placeholder="Home Address" aria-label="Home Address" name="homeAddress" required>
-              <input type="hidden" name="accountStatus" th:value="${status}">
-            </div>
-            <div class="mb-3 col-md-auto">
-
-              <input type="password" class="form-control" placeholder="Seller's Password" aria-label="Seller's Password"
-                name="password" required>
-            </div>
-            <div class="mb-3 col-md-auto">
-
-              <input class="btn btn-primary" type="submit" value="Create Listing and Seller Account">
-
-            </div>
-          </div>
-        </div>
-        <div th:if="${status.equals(true)}">
-          <input type="hidden" name="accountStatus" th:value="${status}">
-          <input type="hidden" name="sellerUserName" th:value="${username}">
-          <input class="btn btn-primary" type="submit" value="Create Listing">
-        </div>
-        <!-- End second row of form fields -->
+      </fieldset>
+      <div th:if="${status.equals(true)}">
+        <input type="hidden" name="accountStatus" th:value="${status}">
+        <input type="hidden" name="sellerUserName" th:value="${username}">
+        <input class="btn btn-primary" type="submit" value="Create Listing">
+      </div>
       </form>
-    </div>
 
+      <!-- End Create New Listing Form Container -->
+
+
+
+    </div>
     <!-- End New Listing Form -->
+
+
 
 
     <!-- Begin OLD listing form -->
