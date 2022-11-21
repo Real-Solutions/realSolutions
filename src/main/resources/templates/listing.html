@@ -4,7 +4,7 @@
 <head>
 
   <head>
-<div th:replace="/fragments/meta-head :: head"></div>
+    <div th:replace="/fragments/meta-head :: head"></div>
   </head>
 </head>
 
@@ -25,6 +25,53 @@
     <!-- Begin New Listing Form -->
 
     <div class="m-4">
+
+
+
+      <!-- Begin Create New Listing Form Container -->
+      <div class="container">
+        <form action="/newListing" method="post">
+          <fieldset>
+            <legend>Create New Listing</legend>
+
+
+            <!-- New Login -->
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-user-tie fa-lg"></i>
+              <input type="text" class="form-control" id="floatingAddress" placeholder="address" name="address">
+              <label for="floatingAddress">Property Address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-lock fa-lg"></i>
+              <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price">
+              <label for="floatingPrice">List Price</label>
+            </div>
+
+            <div class="form-floating mb-3"></div>
+            <i class="icon fa-solid fa-lock fa-lg"></i>
+            <input type="text" class="form-control" id="floatingListingDate" placeholder="listingDate" name="date">
+            <label for="floatingListingDate">Listing Date</label>
+            </div>
+
+            <div th:if="${status.equals(false)}">
+              <legend>Create Account for Seller</legend>
+              <br>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+            <!-- New Login -->
+
+
+          </fieldset>
+        </form>
+      </div>
+      <!-- End New Listing Form Container -->
+
+
+
+
+
+
       <form action="/newListing" method="post">
         <legend>Create New Listing</legend>
         <!-- Begin First Row of form fields -->

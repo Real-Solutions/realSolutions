@@ -1,0 +1,65 @@
+/* BEGIN ACCORDION STYLE */
+
+/* .accordion-button {
+  font-size: inherit;
+} */
+
+.accordion-item {
+  border: 1px solid rgba(35, 65, 100, .15);
+}
+
+.accordion-button:not(.collapsed) {
+  color: inherit;
+  /* background: rgb(35, 65, 100); */
+  background: #009CDF;
+  color: #e8e8e8;
+}
+
+.accordion-button {
+  color: inherit;
+  background:#00569e;
+  color: #e8e8e8;
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0%) invert(100%);
+}
+
+.accordion-button::after {
+  filter: brightness(0%) invert(100%);
+}
+
+.accordion-button:focus {
+  box-shadow: inherit;
+}
+
+/* END ACCORDION STYLE */
+
+
+
+/* BEGIN FORM STYLE */
+
+
+.form-floating {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: calc(50%);
+  left: 1.25rem;
+}
+
+.form-floating label, .form-floating .form-control {
+  left: .5rem;
+  padding-left: 3.5rem;
+}
+
+.icon-textarea {
+  position: absolute;
+  top: 1.8rem;
+  left: 1.25rem;
+}
+
+
+/* END FORM STYLE */

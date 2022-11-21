@@ -9,10 +9,12 @@
 
     <header>
         <div th:replace="/fragments/header :: body"></div>
+      
     </header>
 
     <main th:if="${siteUser.role.equals('agent')}">
         <div th:replace="/fragments/new-listing-card :: body"></div>
+        
     </main>
 
     <!-- Start OLD Agent Main -->
@@ -133,6 +135,11 @@
     <footer>
         <div th:replace="/fragments/footer :: body"></div>
     </footer>
+
+    
+
+
+
 
 </body>
 
