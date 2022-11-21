@@ -13,7 +13,7 @@
     <!-- Begin For Loop -->
     <div th:if="${siteUser.role.equals('agent')}">
 
-
+<div class="container">
 
       <!-- Begin Accordion -->
       <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -93,19 +93,18 @@
 
 
                       <!-- Begin Offers Accordion -->
-                      <div class="accordion accordion-flush mt-3" id="accordionOffers">
-                        <div class="accordion-item" th:each="offer : ${property.offers}">
-                          <h2 class="accordion-header" th:id="'flush-heading' + ${offer.id}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              th:data-bs-target="'#flush-collapse' + ${offer.id}" aria-expanded="false"
-                              th:aria-controls="'flush-collapse' + ${offer.id}"
-                              th:text="'Price: ' + ${offer.offerPrice}">
-                              All Messages
-                            </button>
-                          </h2>
-                          <div th:id="'flush-collapse' + ${offer.id}" class="accordion-collapse collapse"
-                            th:aria-labelledby="'flush-heading' + ${offer.id}" data-bs-parent="#accordionOffers">
-                            <div class="accordion-body">
+                  
+                              <div class="accordion accordion-flush mt-3" id="accordionOffers">
+                                <div class="accordion-item" th:each="offer : ${property.offers}">
+                                  <h2 class="accordion-header" th:id="'flush-heading-offers' + ${offer.id}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                      th:data-bs-target="'#flush-collapse-offers' + ${offer.id}" aria-expanded="false"
+                                      th:aria-controls="'flush-collapse-offers' + ${offer.id}" th:text="'Price: ' + ${offer.offerPrice}">
+                                    </button>
+                                  </h2>
+                                  <div th:id="'flush-collapse-offers' + ${offer.id}" class="accordion-collapse collapse"
+                                    th:aria-labelledby="'flush-heading-offers' + ${offer.id}" data-bs-parent="#accordionOffers">
+                                    <div class="accordion-body">
 
                               <!-- Begin Div row -->
                               <div class="row">
@@ -302,7 +301,7 @@
         </div>
       </div>
       <!-- End Accordion -->
-
+</div>
     </div>
     <!-- End For Loop -->
 

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-<div th:replace="/fragments/meta-head :: head"></div>
+    <div th:replace="/fragments/meta-head :: head"></div>
 </head>
 
 <body>
@@ -13,28 +13,37 @@
 
 
     <main>
-        <div class="m-4">
+        <!-- Begin Login Form Container -->
+        <div class="container">
+            <fieldset>
+                <legend>Login</legend>
+                <form th:onChange="${}" action="/login" method="post">
 
-            <form th:onChange="${}" action="/login" method="post">
-                <!-- Begin First Row of form field -->
-                <div class="row g-3">
-                    <div class="mb-3 col-md-auto">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                            name="username" required>
+
+                    <!-- New Login -->
+                    <div class="form-floating mb-3">
+                        <i class="icon fa-solid fa-user-tie fa-lg"></i>
+                        <input type="text" class="form-control" id="floatingUsername" placeholder="username"
+                            name="username">
+                        <label for="floatingUsername">Username</label>
                     </div>
-                    <div class="mb-3 col-md-auto">
-                        <input type="password" class="form-control" placeholder="Password" aria-label="Password"
-                            name="password" required>
+
+                    <div class="form-floating mb-3">
+                        <i class="icon fa-solid fa-lock fa-lg"></i>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="password"
+                            name="password">
+                        <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="col-md-auto">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                        <a href="/signup">No Account? Sign up!</a>
-                    </div>
-                </div>
-                <!-- End First Row of form field -->
-            </form>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <!-- New Login -->
+
+
+                </form>
+            </fieldset>
         </div>
-
+        <!-- End Login Form Container -->
+        <a href="/signup">No Account? Sign up!</a>
     </main>
 
     <div class="lside">Lside</div>

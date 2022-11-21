@@ -11,6 +11,7 @@
 
   <div th:if="${siteUser.role.equals('seller')}">
 
+    <div class="container">
     <!-- Begin Accordion -->
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div class="accordion-item mb-3" th:each="offer : ${offers}">
@@ -289,7 +290,7 @@
     </div>
 
     <!-- End Accordion -->
-
+</div>
   </div>
 
   <!-- End For Each Loop -->
