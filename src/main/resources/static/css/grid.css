@@ -23,10 +23,10 @@ main,
 content,
 .lside,
 .rside {
-  background-color: steelblue;
+  background-color: white;
   color: #000000;
   padding: 20px;
-  border: skyblue 1px solid;
+  border: black 1px solid;
 }
 
 
