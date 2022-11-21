@@ -96,7 +96,7 @@ public class SiteUserController {
             siteUserRepository.save(newSeller);
         }
         SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
-        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), new SimpleDateFormat("yyyy-MM-dd").parse(yearBuilt), seller);
+        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), Integer.parseInt(yearBuilt), seller);
         propertyRepository.save(newProperty);
         return new RedirectView("/dashboard");
     }
