@@ -104,8 +104,11 @@
 
               <input type="text" class="form-control" placeholder="Seller's Username" aria-label="Seller's Username"
                 name="sellerUserName" required>
-              <input type="hidden" name="phoneNumber" required>
-              <input type="hidden" name="email" required>
+              <input type="text" class="form-control" placeholder="Seller's First Name" aria-label="Seller's First Name" name="firstName" required>
+              <input type="text" class="form-control" placeholder="Seller's Last Name" aria-label="Seller's Last Name" name="lastName" required>
+              <input type="text" class="form-control" placeholder="Seller's Phone Number" aria-label="Seller's Phone Number" name="phoneNumber" required>
+              <input type="text" class="form-control" placeholder="Seller's Email" aria-label="Seller's Email" name="email" required>
+              <input type="text" class="form-control" placeholder="Home Address" aria-label="Home Address" name="homeAddress" required>
               <input type="hidden" name="accountStatus" th:value="${status}">
             </div>
             <div class="mb-3 col-md-auto">

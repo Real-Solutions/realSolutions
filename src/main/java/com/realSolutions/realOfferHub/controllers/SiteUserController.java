@@ -84,12 +84,12 @@ public class SiteUserController {
     }
 
     @PostMapping("/newListing")
-    public RedirectView createListing(String address, String price, String date, String sellerUserName, String password, String accountStatus, Principal p){
+    public RedirectView createListing(String firstName, String lastName, String phoneNumber, String email, String address, String homeAddress, String price, String date, String sellerUserName, String password, String accountStatus, Principal p){
         boolean status = Boolean.parseBoolean(accountStatus);
         if(!status){
             SiteUser agent = siteUserRepository.findByUsername(p.getName());
             String hashedPW = passwordEncoder.encode(password);
-            SiteUser newSeller = new SiteUser("Jon", "Snow", sellerUserName, hashedPW, "seller", "5554443333", "abc@gmail.com", "Abc Street", "Offer up", "272736", "a seller", agent);
+            SiteUser newSeller = new SiteUser(firstName, lastName, sellerUserName, hashedPW, "seller", phoneNumber, email, homeAddress, "n/a", "N/a", "n/a", agent);
             siteUserRepository.save(newSeller);
         }
         SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
