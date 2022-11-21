@@ -14,6 +14,12 @@ public class Property {
 
    private String address;
    private Float price;
+   private Date initialPosting;
+   private Integer numberOfRooms;
+   private Integer numberOfBathrooms;
+   private Float squareFootage;
+   private Date yearBuilt;
+
 
     @ManyToOne
     SiteUser mySeller;
@@ -24,10 +30,35 @@ public class Property {
     protected Property() {
     }
 
-    public Property(String address, Float price, SiteUser mySeller) {
+    public Property(String address, Float price, Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Float squareFootage, Date yearBuilt, SiteUser mySeller) {
         this.address = address;
         this.price = price;
+        this.initialPosting = initialPosting;
+        this.numberOfRooms = numberOfRooms;
+        this.numberOfBathrooms = numberOfBathrooms;
+        this.squareFootage = squareFootage;
+        this.yearBuilt = yearBuilt;
         this.mySeller = mySeller;
+    }
+
+    public Date getInitialPosting() {
+        return initialPosting;
+    }
+
+    public Integer getNumberOfRooms() {
+        return numberOfRooms;
+    }
+
+    public Integer getNumberOfBathrooms() {
+        return numberOfBathrooms;
+    }
+
+    public Float getSquareFootage() {
+        return squareFootage;
+    }
+
+    public Date getYearBuilt() {
+        return yearBuilt;
     }
 
     public List<Offer> getOffers() {
