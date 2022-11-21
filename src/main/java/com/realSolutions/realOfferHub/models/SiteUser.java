@@ -81,7 +81,7 @@ public class SiteUser implements UserDetails {
         this.bio = bio;
     }
 
-    public SiteUser(String firstName, String lastName, String username, String hashedPW, String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio) {
+    public SiteUser(String firstName, String lastName, String username, String password, String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

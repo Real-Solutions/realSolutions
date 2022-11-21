@@ -78,65 +78,154 @@
             <input type="text" class="form-control" placeholder="Buyer's Last Name" aria-label="Buyer's Last Name"
               name="buyersLastName" required>
           </div>
+        </div>
+
+          <!--        star of third row -->
+          <div class="row g-3 mb-3">
+            <div class="mb-3 col-md-auto">
+
+              <input type="number" class="form-control" id="ernest-money-amount" placeholder="Ernest Money Amount"
+                     aria-label="Ernest Money Amount" name="ernestMoneyAmount">
+
+            </div>
+            <div class="mb-3 col-md-auto">
+
+              <input type="number" class="form-control" placeholder="closeOfEscrow" aria-label="Close of Escrow" name="closeOfEscrow" required>
+            </div>
+
+            <div class="mb-3 col-md-auto">
+
+              <input type="number" class="form-control" id="concessions" placeholder="Concessions"
+                     aria-label="Concessions" name="concessions">
+            </div>
+          </div>
+
+<!--            start of fourth row-->
+
+            <div class="row g-3 mb-3">
+              <div class="mb-3 col-md-auto">
+
+                <input type="text" class="form-control" id="loan-type" placeholder="Loan Type"
+                       aria-label="Loan Type" name="loanType">
+
+              </div>
+              <div class="mb-3 col-md-auto">
+
+                <input type="text" class="form-control" placeholder="personalPropertyRequested" aria-label="Personal Property Requested" name="personalPropertyRequested" required>
+              </div>
+
+              <div class="mb-3 col-md-auto">
+
+                <input type="text" class="form-control" id="hoa" placeholder="hoa"
+                       aria-label="HOA" name="hoa">
+              </div>
+            </div>
+
+<!--              start of fifth row-->
+
+              <div class="row g-3 mb-3">
+                <div class="mb-3 col-md-auto">
+
+                  <input type="text" class="form-control" id="home-warranty" placeholder="Home Warranty"
+                         aria-label="Home Warranty" name="homeWarranty">
+
+                </div>
+                <div class="mb-3 col-md-auto">
+
+                  <input type="text" class="form-control" placeholder="inspection-period" aria-label="Inspection Period" name="inspectionPeriod" required>
+                </div>
+
+                <div class="mb-3 col-md-auto">
+
+                  <select class="form-control" id="escalation" placeholder="escalation"
+                          aria-label="Escalation" name="escalation">
+
+                    <option selected>Escalation</option>
+                    <option th:text="yes"></option>
+                    <option th:text="no"></option>
+
+
+                  </select>
+                </div>
+                </div>
+
+<!--        start of sixth row-->
+
+        <div class="row g-3 mb-3">
+          <div class="mb-3 col-md-auto">
+
+            <input type="date" class="form-control" id="response-date" placeholder="Response Date"
+                   aria-label="Response Date" name="responseDate">
+
+          </div>
+          <div class="mb-3 col-md-auto">
+
+            <input type="date" class="form-control" placeholder="response time" aria-label="Response Time" name="responseTime" required>
+          </div>
 
           <div class="mb-3 col-md-auto">
 
-            <input type="submit" value="Submit Offer" class="btn btn-primary">
-
+            <input type="text" class="form-control" id="-terms-and-conditions" placeholder="terms and condition"
+                   aria-label="Additional Terms and Conditions" name="additionalTermsAndConditions">
           </div>
+        </div>
+        <div class="mb-3 col-md-auto">
+
+          <input type="submit" value="Submit Offer" class="btn btn-primary">
 
         </div>
-        <!-- End second row of form fields -->
+
       </form>
     </div>
+
 
     <!-- End New Offer Submission Form -->
 
 
 
 
-    <div class="left">
+<!--    <div class="left">-->
 
-      <form action="/offer" th:method="post">
-        <fieldset>
-          <legend>Offer Submission Form</legend>
-          <div class="form-group">
-            <label>Property Address</label>
-            <select class="form-control" id="property-address" placeholder="Property Address"
-              aria-label="Property Address" name="address">
+<!--      <form action="/offer" th:method="post">-->
+<!--        <fieldset>-->
+<!--          <legend>Offer Submission Form</legend>-->
+<!--          <div class="form-group">-->
+<!--            <label>Property Address</label>-->
+<!--            <select class="form-control" id="property-address" placeholder="Property Address"-->
+<!--              aria-label="Property Address" name="address">-->
 
-              <option selected>Choose...</option>
-              <option th:each="address : ${addresses}" th:text="${address}"></option>
+<!--              <option selected>Choose...</option>-->
+<!--              <option th:each="address : ${addresses}" th:text="${address}"></option>-->
 
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Price</label>
-            <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price" name="price">
-          </div>
-          <div class="form-group">
-            <label>Down Payment</label>
-            <input type="text" class="form-control" id="down-payment" placeholder="Down Payment"
-              aria-label="Down Payment" name="downPayment">
-          </div>
-          <div class="form-group">
-            <label>Contingent Buyer</label>
-            <select class="form-control" id="contingent-buyer" placeholder="Contingent Buyer"
-              aria-label="Contingent Buyer" name="contingentBuyer">
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Price</label>-->
+<!--            <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price" name="price">-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Down Payment</label>-->
+<!--            <input type="text" class="form-control" id="down-payment" placeholder="Down Payment"-->
+<!--              aria-label="Down Payment" name="downPayment">-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Contingent Buyer</label>-->
+<!--            <select class="form-control" id="contingent-buyer" placeholder="Contingent Buyer"-->
+<!--              aria-label="Contingent Buyer" name="contingentBuyer">-->
 
-              <option selected>Choose...</option>
-              <option th:text="yes"></option>
-              <option th:text="no"></option>
+<!--              <option selected>Choose...</option>-->
+<!--              <option th:text="yes"></option>-->
+<!--              <option th:text="no"></option>-->
 
 
-            </select>
-          </div>
+<!--            </select>-->
+<!--          </div>-->
 
-          <input type="submit" value="Submit Offer" class="btn btn-primary">
-        </fieldset>
-      </form>
+<!--          <input type="submit" value="Submit Offer" class="btn btn-primary">-->
+<!--        </fieldset>-->
+<!--      </form>-->
 
-    </div>
+<!--    </div>-->
 
 
 

@@ -21,13 +21,13 @@ public class Offer {
     String loanType;
     boolean contingentBuyer;
     String personalPropertyRequested;
-    String Hoa;
-    String HomeWarranty;
-    String InspectionPeriod;
-    boolean Escalation;
+    String hoa;
+    String homeWarranty;
+    String inspectionPeriod;
+    boolean escalation;
     Date responseDate;
     Date responseTime;
-    String AdditionalTermsAndConditions;
+    String additionalTermsAndConditions;
 
 
     @ManyToOne
@@ -39,16 +39,81 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(String buyersFirstName, float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty) {
+    public Offer(String address, float price, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, Date responseTime, String additionalTermsAndConditions) {
         this.buyersFirstName = buyersFirstName;
+        this.buyersLastName = buyersLastName;
         this.offerPrice = offerPrice;
+        this.ernestMoneyAmount = ernestMoneyAmount;
         this.downPayment = downPayment;
+        this.closeOfEscrow = closeOfEscrow;
+        this.concessions = concessions;
+        this.loanType = loanType;
         this.contingentBuyer = contingentBuyer;
+        this.personalPropertyRequested = personalPropertyRequested;
+        this.hoa = hoa;
+        this.homeWarranty = homeWarranty;
+        this.inspectionPeriod = inspectionPeriod;
+        this.escalation = escalation;
+        this.responseDate = responseDate;
+        this.responseTime = responseTime;
+        this.additionalTermsAndConditions = additionalTermsAndConditions;
         this.myProperty = myProperty;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getBuyersLastName() {
+        return buyersLastName;
+    }
+
+    public float getErnestMoneyAmount() {
+        return ernestMoneyAmount;
+    }
+
+    public float getCloseOfEscrow() {
+        return closeOfEscrow;
+    }
+
+    public float getConcessions() {
+        return concessions;
+    }
+
+    public String getLoanType() {
+        return loanType;
+    }
+
+    public String getPersonalPropertyRequested() {
+        return personalPropertyRequested;
+    }
+
+    public String getHoa() {
+        return hoa;
+    }
+
+    public String getHomeWarranty() {
+        return homeWarranty;
+    }
+
+    public String getInspectionPeriod() {
+        return inspectionPeriod;
+    }
+
+    public boolean isEscalation() {
+        return escalation;
+    }
+
+    public Date getResponseDate() {
+        return responseDate;
+    }
+
+    public Date getResponseTime() {
+        return responseTime;
+    }
+
+    public String getAdditionalTermsAndConditions() {
+        return additionalTermsAndConditions;
     }
 
     public String getBuyersFirstName() {
