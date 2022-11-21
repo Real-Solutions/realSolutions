@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class OfferController {
@@ -50,12 +52,18 @@ public class OfferController {
     }
 
     @PostMapping("/offer")
-    public RedirectView newOffer(String address, String price, String downPayment, String contingentBuyer){
+    public RedirectView newOffer(String buyersFirstName, String buyersLastName, String address, String price, String downPayment, String ernestMoneyAmount, String contingentBuyer, String closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, String escalation, String responseDate, String responseTime, String additionalTermsAndConditions){
         Property property = propertyRepository.getPropertyByAddress(address);
         float pricef = Float.parseFloat(price);
         float downPaymentf = Float.parseFloat(downPayment);
         boolean contingentBuyerb = !contingentBuyer.equals("no");
-        Offer newOffer = new Offer(address, pricef, downPaymentf, contingentBuyerb, property);
+        float ernestMoneyAmountf = Float.parseFloat(ernestMoneyAmount);
+        float closeOfEscrowf = Float.parseFloat(closeOfEscrow);
+        float concessionsf = Float.parseFloat(concessions);
+        boolean escalationb = !escalation.equals("no");
+        Date responseDated = new Date();
+        Date responseTimed = new Date();
+        Offer newOffer = new Offer(address, pricef, downPaymentf, contingentBuyerb, property, buyersFirstName, buyersLastName, ernestMoneyAmountf, closeOfEscrowf, concessionsf, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions);
         offerRepository.save(newOffer);
         return new RedirectView("/dashboard");
     }

@@ -3,19 +3,15 @@
 <head>
 <div th:replace="/fragments/meta-head :: head"></div>
 </head>
-<body>
+<body class="full">
+
 <header>
     <div th:replace="/fragments/header :: body"></div>
 </header>
 <main>
-    <h2 class="error-message">Were sorry, we cannot find what you're <br> looking for</h2>
-    <img  src="/images/error-img.png" alt="error-img" width="800" height="600" margin="auto">
+    <h2 class="error-message">Were sorry, <br> we cannot find what you're looking for</h2>
+    <img class="error-image"  src="/images/error-img.png" alt="error-img">
 
-    <div>
-        <h6 th:text="${status}"></h6>
-        <h6 th:text="${error}"></h6>
-        <h6 th:text="${message}"></h6>
-    </div>
 </main>
 <footer></footer>
 </body>

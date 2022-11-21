@@ -77,7 +77,7 @@ public class SiteUserController {
     @PostMapping("/signup")
     public RedirectView createUser(String firstName, String lastName, String username, String password,  String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio){
         String hashedPW = passwordEncoder.encode(password);
-        SiteUser newUser = new SiteUser(firstName, lastName, username, hashedPW, role, phoneNumber, email, brokerageName, licenseNumber, bio );
+        SiteUser newUser = new SiteUser(firstName, lastName, username, hashedPW, "agent", phoneNumber, email, brokerageName, licenseNumber, bio );
         siteUserRepository.save(newUser);
         authWithHttpServletRequest(username, password);
         return new RedirectView("/");
