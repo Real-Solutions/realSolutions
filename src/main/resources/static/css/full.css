@@ -1,0 +1,15 @@
+.full {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    'header header header header'
+    'main main main main'
+    'footer footer footer footer';
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+
+}
+

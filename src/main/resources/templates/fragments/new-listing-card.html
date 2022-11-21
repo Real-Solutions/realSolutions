@@ -267,7 +267,7 @@
                                       <div class="container" th:each="message : ${offer.messages}">
                                         <img src="images/profile-placeholder.png" alt="Avatar">
                                         <p th:text="'Body: ' + ${message.body}"></p>
-                                        <span class="time-right" th:text="'Date: ' + ${message.date}"></span>
+                                        <span class="time-right" th:text="'Date: ' + ${message.date} + ' | ' + ${siteUser.firstName} + ' ' + ${siteUser.lastName}"></span>
                                       </div>
 
                                       <div class="container darker">
