@@ -81,6 +81,19 @@ public class SiteUser implements UserDetails {
         this.bio = bio;
     }
 
+    public SiteUser(String firstName, String lastName, String username, String hashedPW, String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.brokerageName = brokerageName;
+        this.licenseNumber = licenseNumber;
+        this.bio = bio;
+    }
+
     public List<Property> getProperties() {
         return properties;
     }

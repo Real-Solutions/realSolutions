@@ -8,8 +8,9 @@
     <div th:replace="/fragments/header :: body"></div>
 </header>
 <main>
-    <img class="error-image" src="/images/error-img.jpg" alt="error-img" width="800" height="600">
-    <h2>UH OH... There's Been a Glitch in the Matrix!</h2>
+    <h2 class="error-message">Were sorry, we cannot find what you're <br> looking for</h2>
+    <img  src="/images/error-img.png" alt="error-img" width="800" height="600" margin="auto">
+
     <div>
         <h6 th:text="${status}"></h6>
         <h6 th:text="${error}"></h6>

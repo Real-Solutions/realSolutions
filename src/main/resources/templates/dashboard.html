@@ -31,9 +31,9 @@
         <a href="/newListing">New Listing</a>
         <div>
             <ul th:each="seller : ${sellers}">
-                <form action="/deletePost" method="post">
+                <form action="/deleteSeller" th:method="delete">
                     <fieldset>
-                        <input type="hidden" name="body" th:value="${seller.username}">
+                        <input type="hidden" name="id" th:value="${seller.id}">
                         <input type="submit" value="X" />
                     </fieldset>
                 </form>

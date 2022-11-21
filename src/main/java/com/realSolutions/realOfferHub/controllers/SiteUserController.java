@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
+import org.unbescape.properties.PropertiesKeyEscapeLevel;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -74,9 +75,9 @@ public class SiteUserController {
 //    public String getNewListing(){return "listing";}
 
     @PostMapping("/signup")
-    public RedirectView createUser(String username, String password, String firstName, String lastName){
+    public RedirectView createUser(String firstName, String lastName, String username, String password,  String role, String phoneNumber, String email, String brokerageName, String licenseNumber, String bio){
         String hashedPW = passwordEncoder.encode(password);
-        SiteUser newUser = new SiteUser("Jon", "Snow", username, hashedPW, "agent", "5554443333", "abc@gmail.com", "Abc Street", "Offer up", "272736", "an agent seller" );
+        SiteUser newUser = new SiteUser(firstName, lastName, username, hashedPW, role, phoneNumber, email, brokerageName, licenseNumber, bio );
         siteUserRepository.save(newUser);
         authWithHttpServletRequest(username, password);
         return new RedirectView("/");
