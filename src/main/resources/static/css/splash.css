@@ -28,9 +28,17 @@
       color: white;
       left: 20%;
       right: 20%;
-
 }
 
+.intro-message{
+    margin: auto;
+    margin-top: 29px;
+    font-style: italic;
+}
+
+.agent-message{
+    margin-top: 38px;
+}
 
 .splash-image{
     width: 100%;
@@ -39,24 +47,29 @@
 }
 
 .template-image{
+    margin: auto;
     width:600px;
     height: 700px;
 }
 
 .template-image-div{
+    margin: auto;
     display: inline-block;
     margin-top: 18px;
 }
 
 .splash-template{
+    margin: auto;
     text-align: center;
-    margin-top: 18px;
+    margin-top: 38px;
 }
 
 .seller-template{
-    margin-top: 18px;
+    margin: auto;
+    margin-top: 38px;
 }
 
 .communication-template{
+    margin: auto;
     margin-top: 18px;
 }
