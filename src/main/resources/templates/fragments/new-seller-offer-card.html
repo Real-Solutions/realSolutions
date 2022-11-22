@@ -18,7 +18,7 @@
         <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${offer.id}">
           <button class="accordion-button" type="button" data-bs-toggle="collapse"
             th:data-bs-target="'#panelsStayOpen-collapse' + ${offer.id}" aria-expanded="false"
-            th:aria-controls="'panelsStayOpen-collapse' + ${offer.id}" th:text="'Offer Price: ' + ${offer.offerPrice}">
+            th:aria-controls="'panelsStayOpen-collapse' + ${offer.id}" th:text="'Offer Price: ' + ${offer.priceString}">
             Accordion Item #1
           </button>
     
@@ -37,7 +37,7 @@
 
                     <!-- Begin Offer Card Title Header -->
                     <div class="position-absolute top-0 start-0">
-                      <h2 th:text="'Offer: ' + ${offer.offerPrice}"></h2>
+                      <h2 th:text="'Offer: ' + ${offer.priceString}"></h2>
                     </div>
                     <!-- End Offer Card Title Header -->
 
