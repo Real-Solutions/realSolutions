@@ -22,6 +22,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -68,14 +69,18 @@ public class OfferController {
 
         LocalTime responseTimed = LocalTime.parse(responseTime);
 
-
         NumberFormat priceFormat = NumberFormat.getInstance();
         String priceString = "$" + priceFormat.format(Float.parseFloat(price));
         String downPaymentString = "$" + priceFormat.format(Float.parseFloat(downPayment));
         String ernestMoneyAmountString = "$" + priceFormat.format(Float.parseFloat(ernestMoneyAmount));
         StringBuilder contingentBuyerStringIntermediate = new StringBuilder();
-        String responseDateString = responseDated.toString();
-        String closeOfEscrowString = closeOfEscrowDated.toString();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+
+        String responseDateString = simpleDateFormat.format(responseDated);
+        String closeOfEscrowString = simpleDateFormat.format(closeOfEscrowDated);
+        String responseTimeString = dateTimeFormatter.format(responseTimed);
 
         if(contingentBuyerb){
             contingentBuyerStringIntermediate.append("Yes");
@@ -86,7 +91,7 @@ public class OfferController {
 
         String contingentBuyerString = contingentBuyerStringIntermediate.toString();
 
-        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), closeOfEscrowDated, concessions, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString, contingentBuyerString, responseDateString, closeOfEscrowString);
+        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), closeOfEscrowDated, concessions, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString, contingentBuyerString, responseDateString, closeOfEscrowString, responseTimeString);
 
         offerRepository.save(newOffer);
         return new RedirectView("/dashboard");

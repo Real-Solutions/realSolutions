@@ -35,6 +35,7 @@ public class Offer {
     String contingentBuyerString;
     String responseDateString;
     String closeOfEscrowString;
+    String responseTimeString;
 
 
     @ManyToOne
@@ -46,7 +47,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, Date closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString) {
+    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, Date closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString, String responseTimeString) {
         this.offerPrice = offerPrice;
         this.downPayment = downPayment;
         this.contingentBuyer = contingentBuyer;
@@ -71,6 +72,7 @@ public class Offer {
         this.contingentBuyerString = contingentBuyerString;
         this.responseDateString = responseDateString;
         this.closeOfEscrowString = closeOfEscrowString;
+        this.responseTimeString = responseTimeString;
     }
 
 
@@ -86,7 +88,6 @@ public class Offer {
     public String getDownPaymentString() {
         return downPaymentString;
     }
-
 
     public String getErnestMoneyAmountString() {
         return ernestMoneyAmountString;
@@ -178,5 +179,9 @@ public class Offer {
 
     public String getCloseOfEscrowString() {
         return closeOfEscrowString;
+    }
+
+    public String getResponseTimeString() {
+        return responseTimeString;
     }
 }
