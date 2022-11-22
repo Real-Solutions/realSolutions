@@ -73,6 +73,10 @@ public class Offer {
         return id;
     }
 
+    public Property getMyProperty() {
+        return myProperty;
+    }
+
     public String getDownPaymentString() {
         return downPaymentString;
     }

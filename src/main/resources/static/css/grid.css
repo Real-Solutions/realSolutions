@@ -34,6 +34,9 @@ header {
   grid-area: header;
 }
 
+
+
+
 .error-image{
     width: 100%;
     height: 100%;
@@ -49,6 +52,13 @@ header {
       font-family: 'Roboto Mono', monospace;
 }
 
+.error-status{
+    position: relative;
+}
+
+
+
+
 .splash-message{
       text-align: center;
       margin: auto;
@@ -57,23 +67,43 @@ header {
       position: absolute;
       font-size: 56px;
       color: white;
-      font-family: 'Roboto Mono', monospace;
-}
-
-.error-status{
-    position: relative;
 }
 
 .splash-image{
     width: 100%;
-    height: 50%;
+    height: 700px;
     padding: 0px;
+}
+
+.template-image{
+    width:600px;
+    height: 650px;
+}
+
+.template-image-div{
+    display: inline-block;
+    margin-top: 18px;
+
+}
+
+.splash-template{
+    text-align: center;
+    margin-top: 18px;
+}
+
+.seller-template{
+    margin-top: 18px;
+}
+
+.communication-template{
+    margin-top: 18px;
 }
 
 
 main {
   grid-area: main;
   padding: 0px;
+  font-family: 'Andada Pro', serif;
 }
 
 .lside {
