@@ -1,6 +1,7 @@
 package com.realSolutions.realOfferHub.models;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -26,11 +27,10 @@ public class Offer {
     String inspectionPeriod;
     boolean escalation;
     Date responseDate;
-    Date responseTime;
+    LocalTime responseTime;
     String additionalTermsAndConditions;
     String priceString;
     String downPaymentString;
-
     String ernestMoneyAmountString;
     String closeOfEscrowString;
     String concessionsString;
@@ -45,16 +45,17 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(String address, float price, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, Date responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String closeOfEscrowString, String concessionsString) {
+    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String closeOfEscrowString, String concessionsString) {
+        this.offerPrice = offerPrice;
+        this.downPayment = downPayment;
+        this.contingentBuyer = contingentBuyer;
+        this.myProperty = myProperty;
         this.buyersFirstName = buyersFirstName;
         this.buyersLastName = buyersLastName;
-        this.offerPrice = offerPrice;
         this.ernestMoneyAmount = ernestMoneyAmount;
-        this.downPayment = downPayment;
         this.closeOfEscrow = closeOfEscrow;
         this.concessions = concessions;
         this.loanType = loanType;
-        this.contingentBuyer = contingentBuyer;
         this.personalPropertyRequested = personalPropertyRequested;
         this.hoa = hoa;
         this.homeWarranty = homeWarranty;
@@ -64,12 +65,13 @@ public class Offer {
         this.responseTime = responseTime;
         this.additionalTermsAndConditions = additionalTermsAndConditions;
         this.priceString = priceString;
-        this.myProperty = myProperty;
         this.downPaymentString = downPaymentString;
         this.ernestMoneyAmountString = ernestMoneyAmountString;
         this.closeOfEscrowString = closeOfEscrowString;
         this.concessionsString = concessionsString;
     }
+
+
 
     public Long getId() {
         return id;
@@ -140,7 +142,7 @@ public class Offer {
         return responseDate;
     }
 
-    public Date getResponseTime() {
+    public LocalTime getResponseTime() {
         return responseTime;
     }
 
