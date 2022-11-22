@@ -64,6 +64,7 @@ public class OfferController {
         boolean escalationb = !escalation.equals("no");
 
         Date responseDated = new SimpleDateFormat("yyyy-MM-dd").parse(responseDate);
+        Date closeOfEscrowDated = new SimpleDateFormat("yyyy-MM-dd").parse(closeOfEscrow);
 
         LocalTime responseTimed = LocalTime.parse(responseTime);
 
@@ -72,8 +73,20 @@ public class OfferController {
         String priceString = "$" + priceFormat.format(Float.parseFloat(price));
         String downPaymentString = "$" + priceFormat.format(Float.parseFloat(downPayment));
         String ernestMoneyAmountString = "$" + priceFormat.format(Float.parseFloat(ernestMoneyAmount));
+        StringBuilder contingentBuyerStringIntermediate = new StringBuilder();
+        String responseDateString = responseDated.toString();
+        String closeOfEscrowString = closeOfEscrowDated.toString();
 
-        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), new SimpleDateFormat("yyyy-MM-dd").parse(closeOfEscrow), concessions, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString);
+        if(contingentBuyerb){
+            contingentBuyerStringIntermediate.append("Yes");
+        }
+        else{
+            contingentBuyerStringIntermediate.append("No");
+        }
+
+        String contingentBuyerString = contingentBuyerStringIntermediate.toString();
+
+        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), closeOfEscrowDated, concessions, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString, contingentBuyerString, responseDateString, closeOfEscrowString);
 
         offerRepository.save(newOffer);
         return new RedirectView("/dashboard");
