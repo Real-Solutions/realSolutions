@@ -19,7 +19,6 @@ public class Property {
    private Integer numberOfBathrooms;
    private Float squareFootage;
    private Integer yearBuilt;
-
    private String priceString;
 
 

@@ -19,6 +19,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.sql.Time;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,19 +56,25 @@ public class OfferController {
     }
 
     @PostMapping("/offer")
-    public RedirectView newOffer(String buyersFirstName, String buyersLastName, String address, String price, String downPayment, String ernestMoneyAmount, String contingentBuyer, String closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, String escalation, String responseDate, String responseTime, String additionalTermsAndConditions){
+    public RedirectView newOffer(String buyersFirstName, String buyersLastName, String address, String price, String downPayment, String ernestMoneyAmount, String contingentBuyer, String closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, String escalation, String responseDate, String responseTime, String additionalTermsAndConditions) throws ParseException {
+
         Property property = propertyRepository.getPropertyByAddress(address);
+
         boolean contingentBuyerb = !contingentBuyer.equals("no");
         boolean escalationb = !escalation.equals("no");
-        Date responseDated = new Date();
-        Date responseTimed = new Date();
+
+        Date responseDated = new SimpleDateFormat("yyyy-MM-dd").parse(responseDate);
+        LocalTime responseTimed = LocalTime.parse(responseTime);
+
         NumberFormat priceFormat = NumberFormat.getInstance();
         String priceString = "$" + priceFormat.format(Float.parseFloat(price));
         String downPaymentString = "$" + priceFormat.format(Float.parseFloat(downPayment));
         String ernestMoneyAmountString = "$" + priceFormat.format(Float.parseFloat(ernestMoneyAmount));
         String closeOfEscrowString = "$" + priceFormat.format(Float.parseFloat(closeOfEscrow));
         String concessionsString = "$" + priceFormat.format(Float.parseFloat(concessions));
-        Offer newOffer = new Offer(address, Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), Float.parseFloat(closeOfEscrow), Float.parseFloat(concessions), loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString,downPaymentString, ernestMoneyAmountString, closeOfEscrowString, concessionsString);
+
+        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), Float.parseFloat(closeOfEscrow), Float.parseFloat(concessions), loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString, closeOfEscrowString, concessionsString);
+
         offerRepository.save(newOffer);
         return new RedirectView("/dashboard");
     }
