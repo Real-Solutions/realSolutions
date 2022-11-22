@@ -21,7 +21,7 @@
           <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${seller.id}">
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
               th:data-bs-target="'#panelsStayOpen-collapse' + ${seller.id}" aria-expanded="false"
-              th:aria-controls="'panelsStayOpen-collapse' + ${seller.id}" th:text="'Seller: ' + ${seller.username}">
+              th:aria-controls="'panelsStayOpen-collapse' + ${seller.id}" th:text="'Seller: ' + ${seller.firstName} + ' ' + ${seller.lastName} ">
               Accordion Item #1
             </button>
           </h2>
@@ -83,7 +83,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                       th:data-bs-target="'#flush-collapse' + ${property.id}" aria-expanded="false"
                       th:aria-controls="'flush-collapse' + ${property.id}"
-                      th:text="'Address: ' + ${property.address} + ' | ' + 'Price: ' + ${property.price}">
+                      th:text="'Address: ' + ${property.address} + ' | ' + 'Price: ' + ${property.priceString}">
                       All Messages
                     </button>
                   </h2>
@@ -140,7 +140,7 @@
                                   <h2 class="accordion-header" th:id="'flush-heading-offers' + ${offer.id}">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                       th:data-bs-target="'#flush-collapse-offers' + ${offer.id}" aria-expanded="false"
-                                      th:aria-controls="'flush-collapse-offers' + ${offer.id}" th:text="'Price: ' + ${offer.offerPrice}">
+                                      th:aria-controls="'flush-collapse-offers' + ${offer.id}" th:text="'Price: ' + ${offer.priceString}">
                                     </button>
                                   </h2>
                                   <div th:id="'flush-collapse-offers' + ${offer.id}" class="accordion-collapse collapse"
@@ -158,7 +158,7 @@
 
                                         <tr>
                                           <td><strong>Down Payment:</strong></td>
-                                          <td th:text="${offer.downPayment}"></td>
+                                          <td th:text="${offer.downPaymentString}"></td>
                                         </tr>
 
                                         <tr>

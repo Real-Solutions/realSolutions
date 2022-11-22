@@ -20,6 +20,7 @@ import org.unbescape.properties.PropertiesKeyEscapeLevel;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -96,7 +97,9 @@ public class SiteUserController {
             siteUserRepository.save(newSeller);
         }
         SiteUser seller = siteUserRepository.findByUsername(sellerUserName);
-        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), new SimpleDateFormat("yyyy-MM-dd").parse(yearBuilt), seller);
+        NumberFormat priceFormat = NumberFormat.getInstance();
+        String priceString = "$" + priceFormat.format(Float.parseFloat(price));
+        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), new SimpleDateFormat("yyyy-MM-dd").parse(yearBuilt), priceString, seller);
         propertyRepository.save(newProperty);
         return new RedirectView("/dashboard");
     }
