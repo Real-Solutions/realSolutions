@@ -4,8 +4,40 @@
 <div th:replace="/fragments/meta-head :: head"></div>
 </head>
 <body>
-  <div class="text-center">
-    <p>&copy; 2022 Real Solutions. All Rights Reserved.</p>
-  </div>
+
+<div>
+
+  <section>
+    <div>
+      <div class="row">
+        <div class="col-12 col-md-3 col-xl-6">
+          <a class="d-inline-block mb-4" href="#">
+            <img class="img-fluid" src="#" alt="" width="96px">
+          </a>
+          <!-- <p class="d-none">All rights reserved © Real Solutions. Real Offer Hub 2022</p> -->
+        </div>
+        <div class="col-12 col-md-9 col-xl-6">
+          <div class="d-flex align-items-center justify-content-md-end">
+            <ul class="list-unstyled mb-0 d-flex flex-wrap align-items-center">
+              <li class="me-4"><a class="link-secondary" aria-current="page" href="/">Home</a></li>
+              <li class="me-4"><a class="link-secondary" href="#">About Us</a></li>
+              <li class="me-4"><a class="link-secondary" aria-current="page" href="/dashboard">Dashboard</a></li>
+              <li class="me-4"><a class="link-secondary" aria-current="page" href="/newListing">New Listing</a></li>
+              <li class="me-4"><a class="link-secondary" aria-current="page" href="/offer">New Offer</a></li>
+            </ul>
+            <a class="btn btn-outline-success" href="/login" role="button" th:if="${siteUser == null}">Login</a>
+            <div>
+              <p>&nbsp;</p>
+            </div>
+            <a class="btn btn-outline-danger" href="/logout" role="button" th:if="${siteUser != null}">Logout</a>
+            <a class="btn btn-primary" href="/signup" role="button" sec:authorize="${!isAuthenticated()}">Sign Up</a>
+          </div>
+        </div>
+      </div>
+      <p class="mt-4"><small>All rights reserved © Real Solutions. Real Offer Hub 2022</small></p>
+    </div>
+  </section>
+</div>
+
 </body>
 </html>
