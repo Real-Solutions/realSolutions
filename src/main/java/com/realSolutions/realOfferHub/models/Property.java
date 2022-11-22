@@ -18,7 +18,7 @@ public class Property {
    private Integer numberOfRooms;
    private Integer numberOfBathrooms;
    private Float squareFootage;
-   private Date yearBuilt;
+   private Integer yearBuilt;
 
    private String priceString;
 
@@ -31,6 +31,7 @@ public class Property {
 
     protected Property() {
     }
+
 
     public Property(String address, Float price, Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Float squareFootage, Date yearBuilt, String priceString, SiteUser mySeller) {
         this.address = address;
@@ -64,7 +65,7 @@ public class Property {
         return squareFootage;
     }
 
-    public Date getYearBuilt() {
+    public Integer getYearBuilt() {
         return yearBuilt;
     }
 

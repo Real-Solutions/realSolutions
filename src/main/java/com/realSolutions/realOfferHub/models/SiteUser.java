@@ -30,8 +30,14 @@ public class SiteUser implements UserDetails {
     @OneToMany(mappedBy = "mySellerAgent")
     List<SiteUser> sellers;
 
+    @OneToMany(mappedBy = "myOldSellerAgent")
+    List<SiteUser> archivedSellers;
+
     @ManyToOne
     SiteUser mySellerAgent;
+
+    @ManyToOne
+    SiteUser myOldSellerAgent;
 
     @ManyToMany
     @JoinTable(
