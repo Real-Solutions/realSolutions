@@ -84,10 +84,22 @@ public class SiteUser implements UserDetails {
         this.mySellerAgent = mySellerAgent;
     }
 
+    public List<SiteUser> getArchivedSellers() {
+        return archivedSellers;
+    }
+
+    public void setArchivedSellers(List<SiteUser> archivedSellers) {
+        this.archivedSellers = archivedSellers;
+    }
+
+    public SiteUser getMyOldSellerAgent() {
+        return myOldSellerAgent;
+    }
 
     public List<Property> getProperties() {
         return properties;
     }
+
 
     public Long getId() {
         return id;
