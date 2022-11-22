@@ -55,9 +55,9 @@
                     <!-- Begin Div For Delete Seller Button -->
                     <div class="position-absolute top-0 end-0">
                       <!-- Begin Form for Delete Seller -->
-                      <form action="/deletePost" method="post">
+                      <form action="/deleteSeller" th:method="delete">
                         <fieldset>
-                          <input type="hidden" name="body" th:value="${seller.username}">
+                          <input type="hidden" name="id" th:value="${seller.id}">
                           <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
                         </fieldset>
                       </form>

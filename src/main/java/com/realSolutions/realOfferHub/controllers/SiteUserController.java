@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import org.unbescape.properties.PropertiesKeyEscapeLevel;
 
@@ -103,6 +104,21 @@ public class SiteUserController {
 
     @DeleteMapping("/deleteSeller")
     public RedirectView deleteSeller(String id){
+        Long idL = Long.parseLong(id);
+        SiteUser siteUser = siteUserRepository.getReferenceById(idL);
+        for(Property property : siteUser.getProperties()){
+            for(Offer offer : property.getOffers()){
+                messageRepository.deleteAll(offer.getMessages());
+                offerRepository.delete(offer);
+            }
+            propertyRepository.delete(property);
+        }
+        siteUserRepository.delete(siteUser);
+        return new RedirectView("/dashboard");
+    }
+
+    @PutMapping("/archiveSeller")
+    public RedirectView archiveSeller(String id){
         Long idL = Long.parseLong(id);
         SiteUser siteUser = siteUserRepository.getReferenceById(idL);
         for(Property property : siteUser.getProperties()){
