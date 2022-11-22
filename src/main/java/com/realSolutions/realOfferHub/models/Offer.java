@@ -17,8 +17,8 @@ public class Offer {
     float offerPrice;
     float ernestMoneyAmount;
     float downPayment;
-    float closeOfEscrow;
-    float concessions;
+    Date closeOfEscrow;
+    String concessions;
     String loanType;
     boolean contingentBuyer;
     String personalPropertyRequested;
@@ -32,8 +32,6 @@ public class Offer {
     String priceString;
     String downPaymentString;
     String ernestMoneyAmountString;
-    String closeOfEscrowString;
-    String concessionsString;
 
 
     @ManyToOne
@@ -45,7 +43,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String closeOfEscrowString, String concessionsString) {
+    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, Date closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString) {
         this.offerPrice = offerPrice;
         this.downPayment = downPayment;
         this.contingentBuyer = contingentBuyer;
@@ -67,8 +65,6 @@ public class Offer {
         this.priceString = priceString;
         this.downPaymentString = downPaymentString;
         this.ernestMoneyAmountString = ernestMoneyAmountString;
-        this.closeOfEscrowString = closeOfEscrowString;
-        this.concessionsString = concessionsString;
     }
 
 
@@ -86,14 +82,6 @@ public class Offer {
         return ernestMoneyAmountString;
     }
 
-    public String getCloseOfEscrowString() {
-        return closeOfEscrowString;
-    }
-
-    public String getConcessionsString() {
-        return concessionsString;
-    }
-
     public String getPriceString() {
         return priceString;
     }
@@ -106,11 +94,11 @@ public class Offer {
         return ernestMoneyAmount;
     }
 
-    public float getCloseOfEscrow() {
+    public Date getCloseOfEscrow() {
         return closeOfEscrow;
     }
 
-    public float getConcessions() {
+    public String getConcessions() {
         return concessions;
     }
 

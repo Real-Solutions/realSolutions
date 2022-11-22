@@ -64,16 +64,16 @@ public class OfferController {
         boolean escalationb = !escalation.equals("no");
 
         Date responseDated = new SimpleDateFormat("yyyy-MM-dd").parse(responseDate);
+
         LocalTime responseTimed = LocalTime.parse(responseTime);
+
 
         NumberFormat priceFormat = NumberFormat.getInstance();
         String priceString = "$" + priceFormat.format(Float.parseFloat(price));
         String downPaymentString = "$" + priceFormat.format(Float.parseFloat(downPayment));
         String ernestMoneyAmountString = "$" + priceFormat.format(Float.parseFloat(ernestMoneyAmount));
-        String closeOfEscrowString = "$" + priceFormat.format(Float.parseFloat(closeOfEscrow));
-        String concessionsString = "$" + priceFormat.format(Float.parseFloat(concessions));
 
-        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), Float.parseFloat(closeOfEscrow), Float.parseFloat(concessions), loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString, closeOfEscrowString, concessionsString);
+        Offer newOffer = new Offer(Float.parseFloat(price), Float.parseFloat(downPayment), contingentBuyerb, property, buyersFirstName, buyersLastName, Float.parseFloat(ernestMoneyAmount), new SimpleDateFormat("yyyy-MM-dd").parse(closeOfEscrow), concessions, loanType, personalPropertyRequested, hoa, homeWarranty, inspectionPeriod, escalationb, responseDated, responseTimed, additionalTermsAndConditions, priceString, downPaymentString, ernestMoneyAmountString);
 
         offerRepository.save(newOffer);
         return new RedirectView("/dashboard");
