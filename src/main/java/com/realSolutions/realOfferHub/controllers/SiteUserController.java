@@ -108,17 +108,25 @@ public class SiteUserController {
     }
 
     @DeleteMapping("/deleteSeller")
-    public RedirectView deleteSeller(String id){
+    public RedirectView deleteSeller(String id, Principal p){
         Long idL = Long.parseLong(id);
-        SiteUser siteUser = siteUserRepository.getReferenceById(idL);
-        for(Property property : siteUser.getProperties()){
-            for(Offer offer : property.getOffers()){
-                messageRepository.deleteAll(offer.getMessages());
-                offerRepository.delete(offer);
-            }
-            propertyRepository.delete(property);
+        SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        SiteUser seller = siteUserRepository.getReferenceById(idL);
+
+        if(siteUser.getArchivedSellers().contains(seller)){
+            seller.setMySellerAgent(null);
+            siteUserRepository.save(seller);
         }
-        siteUserRepository.delete(siteUser);
+        else{
+            for(Property property : seller.getProperties()){
+                for(Offer offer : property.getOffers()){
+                    messageRepository.deleteAll(offer.getMessages());
+                    offerRepository.delete(offer);
+                }
+                propertyRepository.delete(property);
+            }
+            siteUserRepository.delete(seller);
+        }
         return new RedirectView("/dashboard");
     }
 
@@ -129,10 +137,8 @@ public class SiteUserController {
         SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
         SiteUser seller = siteUserRepository.getReferenceById(idL);
 
-        List<SiteUser> update = siteUser.getArchivedSellers();
-        update.add(seller);
-        siteUser.setArchivedSellers(update);
-        siteUserRepository.save(siteUser);
+        seller.setMyOldSellerAgent(siteUser);
+        siteUserRepository.save(seller);
 
         return new RedirectView("/dashboard");
     }
@@ -144,6 +150,20 @@ public class SiteUserController {
         } catch (ServletException e) {
             e.printStackTrace();
         }
+    }
+
+    @PutMapping("/returnSeller")
+    public RedirectView returnSeller(String id, Principal p){
+        Long idL = Long.parseLong(id);
+
+        SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        SiteUser seller = siteUserRepository.getReferenceById(idL);
+
+        seller.setMySellerAgent(siteUser);
+        seller.setMyOldSellerAgent(null);
+        siteUserRepository.save(seller);
+
+        return new RedirectView("/dashboard");
     }
 
 

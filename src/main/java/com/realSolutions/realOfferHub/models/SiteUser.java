@@ -96,6 +96,10 @@ public class SiteUser implements UserDetails {
         return myOldSellerAgent;
     }
 
+    public void setMyOldSellerAgent(SiteUser myOldSellerAgent) {
+        this.myOldSellerAgent = myOldSellerAgent;
+    }
+
     public List<Property> getProperties() {
         return properties;
     }
@@ -111,6 +115,10 @@ public class SiteUser implements UserDetails {
 
     public SiteUser getMySellerAgent() {
         return mySellerAgent;
+    }
+
+    public void setMySellerAgent(SiteUser mySellerAgent) {
+        this.mySellerAgent = mySellerAgent;
     }
 
     public Set<SiteUser> getAgentBuyers() {
