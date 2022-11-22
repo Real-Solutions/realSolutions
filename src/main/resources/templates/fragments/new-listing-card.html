@@ -163,12 +163,12 @@
 
                                         <tr>
                                           <td><strong>Earnest Money:</strong></td>
-                                          <td>$5,000</td>
+                                          <td th:text="${offer.ernestMoneyAmountString}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>Loan Type:</strong></td>
-                                          <td>Conventional</td>
+                                          <td th:text="${offer.loanType}"></td>
                                         </tr>
 
                                         <tr>
@@ -178,19 +178,19 @@
 
                                         <tr>
                                           <td><strong>Buyer Contingency:</strong></td>
-                                          <td>Buyer Contingency</td>
+                                          <td th:text="${offer.contingentBuyer}"></td>
                                         </tr>
 
 
 
                                         <tr>
                                           <td><strong>Home Warranty:</strong></td>
-                                          <td>Home Warranty</td>
+                                          <td th:text="${offer.homeWarranty}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>Inspection Period:</strong></td>
-                                          <td>Inspection Period</td>
+                                          <td th:text="${offer.inspectionPeriod}"></td>
                                         </tr>
 
 
@@ -210,17 +210,17 @@
 
                                         <tr>
                                           <td><strong>Seller Concessions:</strong></td>
-                                          <td>Seller Concessions</td>
+                                          <td th:text="${offer.concessions}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>Personal Property:</strong></td>
-                                          <td>Personal Property</td>
+                                          <td th:text="${offer.personalPropertyRequested}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>HOA:</strong></td>
-                                          <td>HOA</td>
+                                          <td th:text="${offer.hoa}"></td>
                                         </tr>
 
                                         <tr>
@@ -230,17 +230,17 @@
 
                                         <tr>
                                           <td><strong>Response Date:</strong></td>
-                                          <td>Response Date</td>
+                                          <td th:text="${offer.responseDate}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>Response Time:</strong></td>
-                                          <td>Response Time</td>
+                                          <td th:text="${offer.responseTime}"></td>
                                         </tr>
 
                                         <tr>
                                           <td><strong>Close of Escrow</strong></td>
-                                          <td>Close of Escrow</td>
+                                          <td th:text="${offer.closeOfEscrow}"></td>
                                         </tr>
 
                                       </tbody>
