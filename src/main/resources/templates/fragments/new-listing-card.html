@@ -6,9 +6,11 @@
 </head>
 
 <body>
-
+<div class="m-4 p2">
+  <h1>My Dashboard</h1>
+</div>
   <!-- Begin Div Container for Loop -->
-  <div>
+  <div class="mt-5">
 
     <!-- Begin For Loop -->
     <div th:if="${siteUser.role.equals('agent')}">
@@ -33,41 +35,41 @@
 
                 <!-- Begin Box -->
                 <div class="mt-1 mb-4 d-flex justify-content-end">
-                      <!-- Begin New Listing Button -->
-                      <div class="p-2">
-                        <form action="/newListing" method="get">
-                          <fieldset>
-                            <input type="hidden" name="username" th:value="${seller.username}">
-                            <input type="hidden" name="accountStatus" th:value="${true}">
-                            <input class="btn btn-success btn-sm" type="submit" value="New Listing">
-                          </fieldset>
-                        </form>
-                      </div>
-                      <!-- End New Listing Button -->
-
-                     
-                      <!-- Begin Archive Seller Button -->
-                      <div class="p-2">
-                        <form action="/archiveSeller" th:method="put">
-                          <fieldset>
-                            <input type="hidden" name="id" th:value="${seller.id}">
-                            <input class="btn btn-warning btn-sm" type="submit" value="Archive Seller">
-                          </fieldset>
-                        </form>
-                      </div>
-                      <!-- End Archive Seller Button -->
+                  <!-- Begin New Listing Button -->
+                  <div class="p-2">
+                    <form action="/newListing" method="get">
+                      <fieldset>
+                        <input type="hidden" name="username" th:value="${seller.username}">
+                        <input type="hidden" name="accountStatus" th:value="${true}">
+                        <input class="btn btn-success btn-sm" type="submit" value="New Listing">
+                      </fieldset>
+                    </form>
+                  </div>
+                  <!-- End New Listing Button -->
 
 
-                      <!-- Begin Delete Seller Button -->
-                      <div class="p-2">
-                        <form action="/deleteSeller" th:method="delete">
-                          <fieldset>
-                            <input type="hidden" name="id" th:value="${seller.id}">
-                            <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
-                          </fieldset>
-                        </form>
-                      </div>
-                      <!-- End Delete Seller Button -->
+                  <!-- Begin Archive Seller Button -->
+                  <div class="p-2">
+                    <form action="/archiveSeller" th:method="put">
+                      <fieldset>
+                        <input type="hidden" name="id" th:value="${seller.id}">
+                        <input class="btn btn-warning btn-sm" type="submit" value="Archive Seller">
+                      </fieldset>
+                    </form>
+                  </div>
+                  <!-- End Archive Seller Button -->
+
+
+                  <!-- Begin Delete Seller Button -->
+                  <div class="p-2">
+                    <form action="/deleteSeller" th:method="delete">
+                      <fieldset>
+                        <input type="hidden" name="id" th:value="${seller.id}">
+                        <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
+                      </fieldset>
+                    </form>
+                  </div>
+                  <!-- End Delete Seller Button -->
                 </div>
                 <!-- End Box -->
 
@@ -132,110 +134,114 @@
                               data-bs-parent="#accordionOffers">
                               <div class="accordion-body">
 
-                                <!-- Begin Div row -->
-                                <div class="row">
+
+                                <!-- Begin Offer Details Box -->
+                                <div class="row border border-dark rounded" style="--bs-border-opacity: .25;">
+
+
                                   <!-- Begin First Left Side Box -->
                                   <div class="col">
-                                    <div class="card card-body">
-                                      <table class="table-offer-details-1">
 
-                                        <tbody>
+                                    <table class="table-offer-details-1">
 
-                                          <tr>
-                                            <td><strong>Down Payment:</strong></td>
-                                            <td th:text="${offer.downPaymentString}"></td>
-                                          </tr>
+                                      <tbody>
 
-                                          <tr>
-                                            <td><strong>Earnest Money:</strong></td>
-                                            <td th:text="${offer.ernestMoneyAmountString}"></td>
-                                          </tr>
+                                        <tr>
+                                          <td><strong>Down Payment:</strong></td>
+                                          <td th:text="${offer.downPaymentString}"></td>
+                                        </tr>
 
-                                          <tr>
-                                            <td><strong>Loan Type:</strong></td>
-                                            <td th:text="${offer.loanType}"></td>
-                                          </tr>
+                                        <tr>
+                                          <td><strong>Earnest Money:</strong></td>
+                                          <td th:text="${offer.ernestMoneyAmountString}"></td>
+                                        </tr>
 
-                                          <tr>
-                                            <td><strong>Waiving Appraisal:</strong></td>
-                                            <td>Waiving Appraisal</td>
-                                          </tr>
+                                        <tr>
+                                          <td><strong>Loan Type:</strong></td>
+                                          <td th:text="${offer.loanType}"></td>
+                                        </tr>
 
-                                          <tr>
-                                            <td><strong>Buyer Contingency:</strong></td>
-                                            <td th:text="${offer.contingentBuyer}"></td>
-                                          </tr>
+                                        <tr>
+                                          <td><strong>Waiving Appraisal:</strong></td>
+                                          <td>No</td>
+                                        </tr>
 
-
-
-                                          <tr>
-                                            <td><strong>Home Warranty:</strong></td>
-                                            <td th:text="${offer.homeWarranty}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Inspection Period:</strong></td>
-                                            <td th:text="${offer.inspectionPeriod}"></td>
-                                          </tr>
+                                        <tr>
+                                          <td><strong>Buyer Contingency:</strong></td>
+                                          <td th:text="${offer.contingentBuyer}"></td>
+                                        </tr>
 
 
 
-                                        </tbody>
-                                      </table>
-                                    </div>
+                                        <tr>
+                                          <td><strong>Home Warranty:</strong></td>
+                                          <td th:text="${offer.homeWarranty}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Inspection Period:</strong></td>
+                                          <td th:text="${offer.inspectionPeriod}"></td>
+                                        </tr>
+
+
+
+                                      </tbody>
+                                    </table>
+
                                   </div>
                                   <!-- End First Left Side Box -->
                                   <!-- Begin First Right Side Box -->
                                   <div class="col">
-                                    <div class="card card-body">
-
-                                      <table class="table-offer-details-2">
-
-                                        <tbody>
-
-                                          <tr>
-                                            <td><strong>Seller Concessions:</strong></td>
-                                            <td th:text="${offer.concessions}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Personal Property:</strong></td>
-                                            <td th:text="${offer.personalPropertyRequested}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>HOA:</strong></td>
-                                            <td th:text="${offer.hoa}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Buyer's Agent:</strong></td>
-                                            <td>Buyer's Agent</td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Response Date:</strong></td>
-                                            <td th:text="${offer.responseDate}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Response Time:</strong></td>
-                                            <td th:text="${offer.responseTime}"></td>
-                                          </tr>
-
-                                          <tr>
-                                            <td><strong>Close of Escrow</strong></td>
-                                            <td th:text="${offer.closeOfEscrow}"></td>
-                                          </tr>
-
-                                        </tbody>
-                                      </table>
 
 
-                                    </div>
+                                    <table class="table-offer-details-2">
+
+                                      <tbody>
+
+                                        <tr>
+                                          <td><strong>Seller Concessions:</strong></td>
+                                          <td th:text="${offer.concessions}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Personal Property:</strong></td>
+                                          <td th:text="${offer.personalPropertyRequested}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>HOA:</strong></td>
+                                          <td th:text="${offer.hoa}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Buyer's Agent:</strong></td>
+                                          <td>Buyer's Agent</td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Response Date:</strong></td>
+                                          <td th:text="${offer.responseDate}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Response Time:</strong></td>
+                                          <td th:text="${offer.responseTime}"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <td><strong>Close of Escrow</strong></td>
+                                          <td th:text="${offer.closeOfEscrow}"></td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+
+
+
                                   </div>
                                   <!-- End First Right Side Box -->
                                 </div>
+                                <!-- End Offer Details Box -->
 
                                 <!-- Begin Offer Submission Comments Accordion -->
                                 <div class="accordion accordion-comments mt-3" id="offerSubmissionComments">
