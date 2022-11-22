@@ -17,9 +17,6 @@
 
 
   <main>
-    <h1 th:text="${status}"></h1>
-    <h1 th:if="${status.equals(true)}" th:text="${username}"></h1>
-
 
 
     <!-- Begin New Listing Form -->
@@ -38,63 +35,62 @@
             <!-- Begin New Property Listing Section -->
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-house-user fa-lg"></i>
-              <input type="text" class="form-control" id="floatingAddress" placeholder="address" name="address">
+              <input type="text" class="form-control" id="floatingAddress" placeholder="address" name="address" required>
               <label for="floatingAddress">Property Address</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
-              <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price">
+              <input type="number" class="form-control" id="floatingPrice" placeholder="price" name="price" required>
               <label for="floatingPrice">List Price</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-regular fa-calendar-days fa-lg"></i>
               <input type="date" class="form-control" id="floatingListingDate" placeholder="listingDate"
-                name="initialPosting">
+                name="initialPosting" required>
               <label for="floatingListingDate">Listing Date</label>
             </div>
 
             <section>
-              <fieldset>
-                <legend>Property Details</legend>
 
-                <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-ruler fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingSquareFootage" placeholder="squareFootage"
-                    name="squareFootage">
-                  <label for="floatingSquareFootage">Square Footage</label>
-                </div>
+              <legend>Property Details</legend>
 
-                <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-bed fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingNumberOfRooms" placeholder="numberOfRooms"
-                    name="numberOfRooms">
-                  <label for="floatingNumberOfRooms">Number of Rooms</label>
-                </div>
+              <div class="form-floating mb-3">
+                <i class="icon fa-solid fa-ruler fa-lg"></i>
+                <input type="number" class="form-control" id="floatingSquareFootage" placeholder="squareFootage"
+                  name="squareFootage" required>
+                <label for="floatingSquareFootage">Square Footage</label>
+              </div>
 
-                <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-bath fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingNumberOfBathrooms" placeholder="numberOfBathrooms"
-                    name="numberOfBathrooms">
-                  <label for="floatingNumberOfBathrooms">Number of Bathrooms</label>
-                </div>
+              <div class="form-floating mb-3">
+                <i class="icon fa-solid fa-bed fa-lg"></i>
+                <input type="number" class="form-control" id="floatingNumberOfRooms" placeholder="numberOfRooms"
+                  name="numberOfRooms" required>
+                <label for="floatingNumberOfRooms">Number of Rooms</label>
+              </div>
 
-                <div class="form-floating mb-3">
-                  <i class="icon fa-regular fa-calendar-days fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingYearBuilt" placeholder="yearBuilt"
-                    name="yearBuilt">
-                  <label for="floatingYearBuilt">Year Built</label>
-                </div>
+              <div class="form-floating mb-3">
+                <i class="icon fa-solid fa-bath fa-lg"></i>
+                <input type="number" class="form-control" id="floatingNumberOfBathrooms" placeholder="numberOfBathrooms"
+                  name="numberOfBathrooms" required>
+                <label for="floatingNumberOfBathrooms">Number of Bathrooms</label>
+              </div>
 
-              </fieldset>
+              <div class="form-floating mb-3">
+                <i class="icon fa-regular fa-calendar-days fa-lg"></i>
+                <input type="number" class="form-control" id="floatingYearBuilt" placeholder="yearBuilt" name="yearBuilt" required>
+                <label for="floatingYearBuilt">Year Built</label>
+              </div>
+
+
             </section>
             <!-- End New Property Listing Section -->
 
             <!-- Begin New Seller Section -->
 
             <div th:if="${status.equals(false)}">
-              <fieldset>
+              <section>
                 <p></p>
                 <legend>Create Account for Seller</legend>
                 <br>
@@ -102,32 +98,32 @@
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-user fa-lg"></i>
                   <input type="text" class="form-control" id="floatingFirstName" placeholder="firstName"
-                    name="firstName">
+                    name="firstName" required>
                   <label for="floatingFirstName">First Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-user fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingLastName" placeholder="lastName" name="lastName">
+                  <input type="text" class="form-control" id="floatingLastName" placeholder="lastName" name="lastName" required>
                   <label for="floatingLastName">Last Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-phone fa-lg"></i>
-                  <input type="phone" class="form-control" id="floatingPhone" placeholder="phone" name="phone">
+                  <input type="phone" class="form-control" id="floatingPhone" placeholder="phone" name="phone" required>
                   <label for="floatingPhone">Phone Number</label>
                 </div>
 
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-envelope fa-lg"></i>
-                  <input type="email" class="form-control" id="floatingEmail" placeholder="email" name="email">
+                  <input type="email" class="form-control" id="floatingEmail" placeholder="email" name="email" required>
                   <label for="floatingEmail">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-user fa-lg"></i>
                   <input type="text" class="form-control" id="floatingsellerUserName" placeholder="sellerUserName"
-                    name="sellerUserName">
+                    name="sellerUserName" required>
                   <label for="floatingsellerUserName">Seller's Username</label>
                   <input type="hidden" name="phoneNumber" required>
                   <input type="hidden" name="email" required>
@@ -137,27 +133,26 @@
                 <div class="form-floating mb-3">
                   <i class="icon fa-solid fa-lock fa-lg"></i>
                   <input type="password" class="form-control" id="floatingSellerpassword" placeholder="password"
-                    name="password">
+                    name="password" required>
                   <label for="floatingSellerpassword">Seller's Password</label>
                 </div>
 
                 <input class="btn btn-primary" type="submit" value="Create Listing and Seller Account">
 
-              </fieldset>
+              </section>
             </div>
+            <!-- End New Seller Section -->
+
+
+
+          </fieldset>
+          <div th:if="${status.equals(true)}">
+            <input type="hidden" name="accountStatus" th:value="${status}">
+            <input type="hidden" name="sellerUserName" th:value="${username}">
+            <input class="btn btn-primary" type="submit" value="Create Listing">
+          </div>
+        </form>
       </div>
-      <!-- End New Seller Section -->
-
-
-
-      </fieldset>
-      <div th:if="${status.equals(true)}">
-        <input type="hidden" name="accountStatus" th:value="${status}">
-        <input type="hidden" name="sellerUserName" th:value="${username}">
-        <input class="btn btn-primary" type="submit" value="Create Listing">
-      </div>
-      </form>
-
       <!-- End Create New Listing Form Container -->
 
 

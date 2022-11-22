@@ -27,305 +27,212 @@
 
       <!-- Begin  New Offer Form Container -->
       <div class="container">
-        <form action="/newListing" method="post">
+        <form action="/offer" method="post">
           <fieldset>
-            <legend>Create New Listing</legend>
+            <legend>Create New Offer</legend>
 
 
             <!-- Begin Property  Section -->
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-house-user fa-lg"></i>
-              <input type="text" class="form-control" id="floatingAddress" placeholder="address" name="address">
-              <label for="floatingAddress">Property Address</label>
+              <select class="form-control" id="property-address" placeholder="Property Address"
+                aria-label="Property Address" name="address" required>
+
+                <option selected>Select Property Address</option>
+                <option th:each="address : ${addresses}" th:text="${address}"></option>
+
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-user fa-lg"></i>
+              <input type="text" class="form-control" id="floatingBuyersFirstName" placeholder="buyersFirstName"
+                name="buyersFirstName" required>
+              <label for="floatingBuyersFirstName">First Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-user fa-lg"></i>
+              <input type="text" class="form-control" id="floatingBuyersLastName" placeholder="buyersLastName"
+                name="buyersLastName" required>
+              <label for="floatingBuyersLastName">Last Name</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
-              <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price">
-              <label for="floatingPrice">List Price</label>
+              <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price" required>
+              <label for="floatingPrice">Offer Price</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
+              <input type="text" class="form-control" id="floatingDownPayment" placeholder="downPayment"
+                name="downPayment" required>
+              <label for="floatingDownPayment">Down Payment</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
+              <input type="text" class="form-control" id="floatingErnestMoneyAmount" placeholder="ernestMoneyAmount"
+                name="ernestMoneyAmount" required>
+              <label for="floatingErnestMoneyAmount">Down Payment</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-regular fa-calendar-days fa-lg"></i>
-              <input type="date" class="form-control" id="floatingListingDate" placeholder="listingDate"
-                name="initialPosting">
-              <label for="floatingListingDate">Listing Date</label>
+              <input type="date" class="form-control" id="floatingCloseOfEscrow" placeholder="closeOfEscrow"
+                name="closeOfEscrow" required>
+              <label for="floatingCloseOfEscrow">Close of Escrow</label>
             </div>
 
-            <section>
-              <fieldset>
-                <legend>Property Details</legend>
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingConcessions" placeholder="concessions" name="concessions" required>
+              
+                <option selected>Seller Concessions</option>
+                <option>None</option>
+                <option>1%</option>
+                <option>1.5%</option>
+                <option>2%</option>
+                <option>2.5%</option>
+                <option>3%</option>
+                <option>3.5%</option>
+                <option>4%</option>
+                <option>4.5%</option>
+                <option>5%</option>
+              
+              </select>
+            </div>
 
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingLoanType" placeholder="loanType" name="loanType" required>
+            
+                <option selected>Loan Type</option>
+                <option>Conventional</option>
+                <option>FHA</option>
+                <option>VA</option>
+                <option>Jumbo</option>
+                <option>Cash</option>
+                          
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingPersonalPropertyRequested" placeholder="personalPropertyRequested" name="personalPropertyRequested" required>
+            
+                <option selected>Personal Property Requested</option>
+                <option>Washer</option>
+                <option>Dryer</option>
+                <option>Fridge</option>
+                <option>Washer and Dryer</option>
+                <option>Washer, Dryer and Fridge</option>
+                <option>None</option>
+            
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingHomeWarranty" placeholder="homeWarranty"
+                name="homeWarranty" required>
+            
+                <option selected>HOA</option>
+                <option>Paid by seller</option>
+                <option>Paid by buyer</option>
+                <option>Split 50/50 between buyer and seller</option>
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingInspectionPeriod" placeholder="inspectionPeriod" name="inspectionPeriod" required>
+            
+                <option selected>Inspection Period</option>
+                <option>10 Day</option>
+                <option>9 Day</option>
+                <option>8 Day</option>
+                <option>7 Day</option>
+                <option>6 Day</option>
+                <option>5 Day</option>
+                <option>4 Day</option>
+                <option>3 Day</option>
+                <option>2 Day</option>
+                <option>1 Day</option>
+                <option>0 Day</option>
+                <option>Waiving Inspection Period</option>
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <select class="form-control" id="floatingEscalation" placeholder="escalation" name="escalation" required>
+            
+                <option selected>Escalation Clause</option>
+                <option>No</option>
+                <option>Yes</option>
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-regular fa-calendar-days fa-lg"></i>
+              <input type="date" class="form-control" id="floatingResponseDate" placeholder="responseDate" name="responseDate"
+                required>
+              <label for="floatingResponseDate">Response Date</label>
+            </div>
+
+              <div class="form-floating mb-3">
+                <i class="icon fa-regular fa-calendar-days fa-lg"></i>
+                <input type="time" class="form-control" id="floatingResponseTime" placeholder="responseTime" name="responseTime"
+                  required>
+                <label for="floatingResponseTime">Response Time</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <i class="icon fa-solid fa-user fa-lg"></i>
+                <input type="text-area" class="form-control" id="floatingAdditionalTermsAndConditions" placeholder="additionalTermsAndConditions"
+                  name="additionalTermsAndConditions">
+                <label for="floatingAdditionalTermsAndConditions">Additional Terms and Conditions</label>
+              </div>
+
+            <!-- Begin Buyers Agent Section -->
+            
+            
+              <section>
+                <p></p>
+                <legend>Buyer's Agent</legend>
+                <br>
+            
                 <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-ruler fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingSquareFootage" placeholder="squareFootage"
-                    name="squareFootage">
-                  <label for="floatingSquareFootage">Square Footage</label>
+                  <i class="icon fa-solid fa-user fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingFirstName" placeholder="firstName" name="firstName" required>
+                  <label for="floatingFirstName">First Name</label>
                 </div>
-
+            
                 <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-bed fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingNumberOfRooms" placeholder="numberOfRooms"
-                    name="numberOfRooms">
-                  <label for="floatingNumberOfRooms">Number of Rooms</label>
+                  <i class="icon fa-solid fa-user fa-lg"></i>
+                  <input type="text" class="form-control" id="floatingLastName" placeholder="lastName" name="lastName" required>
+                  <label for="floatingLastName">Last Name</label>
                 </div>
-
+            
                 <div class="form-floating mb-3">
-                  <i class="icon fa-solid fa-bath fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingNumberOfBathrooms" placeholder="numberOfBathrooms"
-                    name="numberOfBathrooms">
-                  <label for="floatingNumberOfBathrooms">Number of Bathrooms</label>
+                  <i class="icon fa-solid fa-phone fa-lg"></i>
+                  <input type="phone" class="form-control" id="floatingPhone" placeholder="phone" name="phone" required>
+                  <label for="floatingPhone">Phone Number</label>
                 </div>
-
+            
                 <div class="form-floating mb-3">
-                  <i class="icon fa-regular fa-calendar-days fa-lg"></i>
-                  <input type="text" class="form-control" id="floatingYearBuilt" placeholder="yearBuilt"
-                    name="yearBuilt">
-                  <label for="floatingYearBuilt">Year Built</label>
+                  <i class="icon fa-solid fa-envelope fa-lg"></i>
+                  <input type="email" class="form-control" id="floatingEmail" placeholder="email" name="email" required>
+                  <label for="floatingEmail">Email</label>
                 </div>
-
-              </fieldset>
-            </section>
-            <!-- End Property Section -->
-
-          
-
-
-
-      </fieldset>
-      <div>
-        <input class="btn btn-primary" type="submit" value="Create Listing">
+ 
+              </section>
+            
+            <!-- End Buyers Agent Section -->
+            <div>
+              <input class="btn btn-primary" type="submit" value="Submit Offer">
+            </div>
+          </fieldset>
+        </form>
+        <!-- End  New Offer Form Container -->
       </div>
-      </form>
-
-      <!-- End  New Offer Form Container -->
-
-
-
-    </div>
-    <!-- End New Offer Form -->
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Begin New Offer Submission Form -->
-
-    <div class="m-4">
-      <form action="/offer" method="post">
-        <legend>Create New Offer</legend>
-        <!-- Begin First Row of form fields -->
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <select class="form-control" id="property-address" placeholder="Property Address"
-              aria-label="Property Address" name="address">
-
-              <option selected>Select Property Address</option>
-              <option th:each="address : ${addresses}" th:text="${address}"></option>
-
-            </select>
-
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" placeholder="Price" aria-label="Price" name="price" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" id="down-payment" placeholder="Down Payment"
-              aria-label="Down Payment" name="downPayment">
-          </div>
-
-        </div>
-        <!-- End First Row of form fields -->
-
-
-        <!-- Begin second row of form fields -->
-        <div class="row align-items-center g-3">
-          <div class="mb-3 col-md-auto">
-
-            <select class="form-control" id="contingent-buyer" placeholder="Contingent Buyer"
-              aria-label="Contingent Buyer" name="contingentBuyer">
-
-              <option selected>Does buyer have a contingency?</option>
-              <option th:text="yes"></option>
-              <option th:text="no"></option>
-
-
-            </select>
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" placeholder="Buyer's First Name" aria-label="Buyer's First Name"
-              name="buyersFirstName" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" placeholder="Buyer's Last Name" aria-label="Buyer's Last Name"
-              name="buyersLastName" required>
-          </div>
-        </div>
-
-        <!--        star of third row -->
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" id="ernest-money-amount" placeholder="Ernest Money Amount"
-              aria-label="Ernest Money Amount" name="ernestMoneyAmount">
-
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" placeholder="closeOfEscrow" aria-label="Close of Escrow"
-              name="closeOfEscrow" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="number" class="form-control" id="concessions" placeholder="Concessions"
-              aria-label="Concessions" name="concessions">
-          </div>
-        </div>
-
-        <!--            start of fourth row-->
-
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" id="loan-type" placeholder="Loan Type" aria-label="Loan Type"
-              name="loanType">
-
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" placeholder="personalPropertyRequested"
-              aria-label="Personal Property Requested" name="personalPropertyRequested" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" id="hoa" placeholder="hoa" aria-label="HOA" name="hoa">
-          </div>
-        </div>
-
-        <!--              start of fifth row-->
-
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" id="home-warranty" placeholder="Home Warranty"
-              aria-label="Home Warranty" name="homeWarranty">
-
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" placeholder="inspection-period" aria-label="Inspection Period"
-              name="inspectionPeriod" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <select class="form-control" id="escalation" placeholder="escalation" aria-label="Escalation"
-              name="escalation">
-
-              <option selected>Escalation</option>
-              <option th:text="yes"></option>
-              <option th:text="no"></option>
-
-
-            </select>
-          </div>
-        </div>
-
-        <!--        start of sixth row-->
-
-        <div class="row g-3 mb-3">
-          <div class="mb-3 col-md-auto">
-
-            <input type="date" class="form-control" id="response-date" placeholder="Response Date"
-              aria-label="Response Date" name="responseDate">
-
-          </div>
-          <div class="mb-3 col-md-auto">
-
-            <input type="date" class="form-control" placeholder="response time" aria-label="Response Time"
-              name="responseTime" required>
-          </div>
-
-          <div class="mb-3 col-md-auto">
-
-            <input type="text" class="form-control" id="-terms-and-conditions" placeholder="terms and condition"
-              aria-label="Additional Terms and Conditions" name="additionalTermsAndConditions">
-          </div>
-        </div>
-        <div class="mb-3 col-md-auto">
-
-          <input type="submit" value="Submit Offer" class="btn btn-primary">
-
-        </div>
-
-      </form>
-    </div>
-
-
-    <!-- End New Offer Submission Form -->
-
-
-
-
-    <!--    <div class="left">-->
-
-    <!--      <form action="/offer" th:method="post">-->
-    <!--        <fieldset>-->
-    <!--          <legend>Offer Submission Form</legend>-->
-    <!--          <div class="form-group">-->
-    <!--            <label>Property Address</label>-->
-    <!--            <select class="form-control" id="property-address" placeholder="Property Address"-->
-    <!--              aria-label="Property Address" name="address">-->
-
-    <!--              <option selected>Choose...</option>-->
-    <!--              <option th:each="address : ${addresses}" th:text="${address}"></option>-->
-
-    <!--            </select>-->
-    <!--          </div>-->
-    <!--          <div class="form-group">-->
-    <!--            <label>Price</label>-->
-    <!--            <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price" name="price">-->
-    <!--          </div>-->
-    <!--          <div class="form-group">-->
-    <!--            <label>Down Payment</label>-->
-    <!--            <input type="text" class="form-control" id="down-payment" placeholder="Down Payment"-->
-    <!--              aria-label="Down Payment" name="downPayment">-->
-    <!--          </div>-->
-    <!--          <div class="form-group">-->
-    <!--            <label>Contingent Buyer</label>-->
-    <!--            <select class="form-control" id="contingent-buyer" placeholder="Contingent Buyer"-->
-    <!--              aria-label="Contingent Buyer" name="contingentBuyer">-->
-
-    <!--              <option selected>Choose...</option>-->
-    <!--              <option th:text="yes"></option>-->
-    <!--              <option th:text="no"></option>-->
-
-
-    <!--            </select>-->
-    <!--          </div>-->
-
-    <!--          <input type="submit" value="Submit Offer" class="btn btn-primary">-->
-    <!--        </fieldset>-->
-    <!--      </form>-->
-
-    <!--    </div>-->
-
+      <!-- End New Offer Form -->
 
 
 
@@ -345,7 +252,7 @@
 
 
 
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </body>
 
 </html>
