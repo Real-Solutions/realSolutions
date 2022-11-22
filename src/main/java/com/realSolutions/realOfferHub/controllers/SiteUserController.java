@@ -101,7 +101,8 @@ public class SiteUserController {
 
         NumberFormat priceFormat = NumberFormat.getInstance();
         String priceString = "$" + priceFormat.format(Float.parseFloat(price));
-        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), Integer.parseInt(yearBuilt), priceString, seller);
+        String squareFootageString = priceFormat.format(Float.parseFloat(squareFootage));
+        Property newProperty = new Property(address, Float.parseFloat(price), new SimpleDateFormat("yyyy-MM-dd").parse(initialPosting), Integer.parseInt(numberOfRooms), Integer.parseInt(numberOfBathrooms), Float.parseFloat(squareFootage), Integer.parseInt(yearBuilt), priceString, squareFootageString, seller);
 
         propertyRepository.save(newProperty);
         return new RedirectView("/dashboard");
