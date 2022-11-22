@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-<div th:replace="/fragments/meta-head :: head"></div>
+    <div th:replace="/fragments/meta-head :: head"></div>
 </head>
 
 <body>
@@ -14,17 +14,128 @@
 
     <main>
 
+
+
+
+        <!-- Begin New Signup Form -->
+
+        <div class="m-4">
+
+
+
+            <!-- Begin New Signup Form Container -->
+            <div class="container">
+                <form action="/signup" method="post">
+                    <fieldset>
+                        <legend>Signup</legend>
+
+                        <!-- Begin New Signup Section -->
+
+
+                        <section>
+                         
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-user fa-lg"></i>
+                                <input type="text" class="form-control" id="floatingFirstName" placeholder="firstName"
+                                    name="firstName" required>
+                                <label for="floatingFirstName">First Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-user fa-lg"></i>
+                                <input type="text" class="form-control" id="floatingLastName" placeholder="lastName"
+                                    name="lastName" required>
+                                <label for="floatingLastName">Last Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-phone fa-lg"></i>
+                                <input type="phone" class="form-control" id="floatingPhone" placeholder="phone"
+                                    name="phone" required>
+                                <label for="floatingPhone">Phone Number</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-envelope fa-lg"></i>
+                                <input type="email" class="form-control" id="floatingEmail" placeholder="email"
+                                    name="email" required>
+                                <label for="floatingEmail">Email</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-user fa-lg"></i>
+                                <input type="text" class="form-control" id="floatingUserName" placeholder="username"
+                                    name="username" required>
+                                <label for="floatingUserName">Username</label>
+
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-lock fa-lg"></i>
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="password"
+                                    name="password" required>
+                                <label for="floatingPassword">Password</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-building fa-lg"></i>
+                                <input type="text" class="form-control" id="floatingBrokerageName"
+                                    placeholder="brokerageName" name="brokerageName" required>
+                                <label for="floatingBrokerageName">Brokerage</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon fa-solid fa-id-card fa-lg"></i>
+                                <input type="text" class="form-control" id="floatingLicenseNumber"
+                                    placeholder="licenseNumber" name="licenseNumber" required>
+                                <label for="floatingLicenseNumber">License Number</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <i class="icon-textarea fa-solid fa-book fa-lg"></i>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingBio" name="bio"
+                                        style="height: 100px"></textarea>
+                                    <label for="floatingBio">Tell us about you. Share a short Bio.</label>                       
+                            </div>
+
+                            <input class="btn btn-primary" type="submit" value="Signup">
+
+                        </section>
+                        <!-- End New Signup Section -->
+
+
+
+                        
+                    </fieldset>
+                </form>
+            </div>
+            <!-- End Signup Form Container -->
+            <a href="/login">Already signed up? Login!</a>
+
+
+        </div>
+        <!-- End New Signup Form -->
+
+
+
+
+
+
+
+
+
         <div class="m-4">
             <form action="/signup" method="post">
                 <!-- Begin First Row of form fields -->
                 <div class="row g-3 mb-3">
                     <div class="mb-3 col-md-auto">
-                  
+
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username"
                             name="username" required>
                     </div>
                     <div class="mb-3 col-md-auto">
-                   
+
                         <input type="password" class="form-control" placeholder="Password" aria-label="Password"
                             name="password" required>
                     </div>
@@ -33,62 +144,62 @@
                 <!-- Begin second row of form fields -->
                 <div class="row align-items-center g-3">
                     <div class="mb-3 col-md-auto">
-                   
+
                         <input type="text" class="form-control" placeholder="First Name" aria-label="First Name"
                             name="firstName" required>
                     </div>
                     <div class="mb-3 col-md-auto">
-                    
+
                         <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"
                             name="lastName" required>
                     </div>
                     <div class="mb-3 col-md-auto">
 
-<!--                        Third Row-->
+                        <!--                        Third Row-->
                         <div class="row align-items-center g-3">
 
                             <div class="mb-3 col-md-auto">
 
-                                <input type="text" class="form-control" placeholder="Phone Number" aria-label="Phone Number"
-                                       name="phoneNumber" required>
+                                <input type="text" class="form-control" placeholder="Phone Number"
+                                    aria-label="Phone Number" name="phoneNumber" required>
                             </div>
                             <div class="mb-3 col-md-auto">
 
-<!--                                Fourth Row-->
+                                <!--                                Fourth Row-->
 
                                 <div class="row align-items-center g-3">
                                     <div class="mb-3 col-md-auto">
 
                                         <input type="text" class="form-control" placeholder="Email" aria-label="Email"
-                                               name="email" required>
+                                            name="email" required>
                                     </div>
                                     <div class="mb-3 col-md-auto">
 
-                                        <input type="text" class="form-control" placeholder="Brokerage Name" aria-label="Brokerage Name"
-                                               name="brokerageName" required>
+                                        <input type="text" class="form-control" placeholder="Brokerage Name"
+                                            aria-label="Brokerage Name" name="brokerageName" required>
                                     </div>
                                     <div class="mb-3 col-md-auto">
 
-<!--                                        Fifth Row-->
+                                        <!--                                        Fifth Row-->
 
                                         <div class="row align-items-center g-3">
                                             <div class="mb-3 col-md-auto">
 
-                                                <input type="text" class="form-control" placeholder="License Number" aria-label="License Number"
-                                                       name="licenseNumber" required>
+                                                <input type="text" class="form-control" placeholder="License Number"
+                                                    aria-label="License Number" name="licenseNumber" required>
                                             </div>
                                             <div class="mb-3 col-md-auto">
 
-                                                <input type="text" class="form-control" placeholder="Bio" aria-label="Bio"
-                                                       name="bio" required>
+                                                <input type="text" class="form-control" placeholder="Bio"
+                                                    aria-label="Bio" name="bio" required>
                                             </div>
                                             <div class="mb-3 col-md-auto">
 
-                        <button type="submit" class="btn btn-primary">Sign up</button>
-                        <a href="/login">Already signed up? Login!</a>
-                    </div>
-                </div>
-                <!-- End second row of form fields -->
+                                                <button type="submit" class="btn btn-primary">Sign up</button>
+                                                <a href="/login">Already signed up? Login!</a>
+                                            </div>
+                                        </div>
+                                        <!-- End second row of form fields -->
             </form>
         </div>
 

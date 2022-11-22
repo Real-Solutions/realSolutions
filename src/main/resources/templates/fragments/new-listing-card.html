@@ -13,83 +13,83 @@
     <!-- Begin For Loop -->
     <div th:if="${siteUser.role.equals('agent')}">
 
-<div class="container">
+      <div class="container">
 
-      <!-- Begin Accordion -->
-      <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item mt-3" th:each="seller : ${sellers}">
-          <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${seller.id}">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              th:data-bs-target="'#panelsStayOpen-collapse' + ${seller.id}" aria-expanded="false"
-              th:aria-controls="'panelsStayOpen-collapse' + ${seller.id}" th:text="'Seller: ' + ${seller.firstName} + ' ' + ${seller.lastName} ">
-              Accordion Item #1
-            </button>
-          </h2>
-          <div th:id="'panelsStayOpen-collapse' + ${seller.id}" class="accordion-collapse collapse show"
-            th:aria-labelledby="'panelsStayOpen-heading' + ${seller.id}">
-            <div class="accordion-body">
-
-
-              <!-- Begin Box -->
-              <div class="row mt-1 mb-4">
-                <div class="col">
-                  <div class="card card-body border border-0 position-relative">
-
-                    <!-- Begin Div For New Listing Button -->
-                    <div class="position-absolute top-0 start-0">
-                      <!-- Begin Form for New Listing -->
-                      <form action="/newListing" method="get">
-                        <fieldset>
-                          <input type="hidden" name="username" th:value="${seller.username}">
-                          <input type="hidden" name="accountStatus" th:value="${true}">
-                          <input class="btn btn-success btn-sm" type="submit" value="New Listing">
-                        </fieldset>
-                      </form>
-                      <!-- End Form for New Listing -->
-                    </div>
-                    <!-- End Div For New Listing Button -->
-
-                   
-                    
-                   
-                    <!-- Begin Div For Delete Seller Button -->
-                    <div class="position-absolute top-0 end-0">
-                      <!-- Begin Form for Delete Seller -->
-                      <form action="/deleteSeller" th:method="delete">
-                        <fieldset>
-                          <input type="hidden" name="id" th:value="${seller.id}">
-                          <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
-                        </fieldset>
-                      </form>
-                      <!-- End Form for Delete Seller -->
-                    </div>
-                    <!-- End Div For Delete Seller Button -->
+        <!-- Begin Accordion -->
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item mt-3" th:each="seller : ${sellers}">
+            <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${seller.id}">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                th:data-bs-target="'#panelsStayOpen-collapse' + ${seller.id}" aria-expanded="false"
+                th:aria-controls="'panelsStayOpen-collapse' + ${seller.id}"
+                th:text="'Seller: ' + ${seller.firstName} + ' ' + ${seller.lastName} ">
+                Accordion Item #1
+              </button>
+            </h2>
+            <div th:id="'panelsStayOpen-collapse' + ${seller.id}" class="accordion-collapse collapse show"
+              th:aria-labelledby="'panelsStayOpen-heading' + ${seller.id}">
+              <div class="accordion-body">
 
 
-                  </div>
+                <!-- Begin Box -->
+                <div class="mt-1 mb-4 d-flex justify-content-end">
+                      <!-- Begin New Listing Button -->
+                      <div class="p-2">
+                        <form action="/newListing" method="get">
+                          <fieldset>
+                            <input type="hidden" name="username" th:value="${seller.username}">
+                            <input type="hidden" name="accountStatus" th:value="${true}">
+                            <input class="btn btn-success btn-sm" type="submit" value="New Listing">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <!-- End New Listing Button -->
+
+                     
+                      <!-- Begin Archive Seller Button -->
+                      <div class="p-2">
+                        <form action="/archiveSeller" th:method="put">
+                          <fieldset>
+                            <input type="hidden" name="id" th:value="${seller.id}">
+                            <input class="btn btn-warning btn-sm" type="submit" value="Archive Seller">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <!-- End Archive Seller Button -->
+
+
+                      <!-- Begin Delete Seller Button -->
+                      <div class="p-2">
+                        <form action="/deleteSeller" th:method="delete">
+                          <fieldset>
+                            <input type="hidden" name="id" th:value="${seller.id}">
+                            <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <!-- End Delete Seller Button -->
                 </div>
-              </div>
-              <!-- End Box -->
-
-
-              
+                <!-- End Box -->
 
 
 
-              <!-- Begin Properties Accordion -->
-              <div class="accordion accordion-flush mt-3" id="accordionProperties">
-                <div class="accordion-item" th:each="property : ${seller.properties}">
-                  <h2 class="accordion-header" th:id="'flush-heading' + ${property.id}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      th:data-bs-target="'#flush-collapse' + ${property.id}" aria-expanded="false"
-                      th:aria-controls="'flush-collapse' + ${property.id}"
-                      th:text="'Address: ' + ${property.address} + ' | ' + 'Price: ' + ${property.priceString}">
-                      All Messages
-                    </button>
-                  </h2>
-                  <div th:id="'flush-collapse' + ${property.id}" class="accordion-collapse collapse"
-                    th:aria-labelledby="'flush-heading' + ${property.id}" data-bs-parent="#accordionProperties">
-                    <div class="accordion-body">
+
+
+
+                <!-- Begin Properties Accordion -->
+                <div class="accordion accordion-flush mt-3" id="accordionProperties">
+                  <div class="accordion-item" th:each="property : ${seller.properties}">
+                    <h2 class="accordion-header" th:id="'flush-heading' + ${property.id}">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        th:data-bs-target="'#flush-collapse' + ${property.id}" aria-expanded="false"
+                        th:aria-controls="'flush-collapse' + ${property.id}"
+                        th:text="'Address: ' + ${property.address} + ' | ' + 'Price: ' + ${property.priceString}">
+                        All Messages
+                      </button>
+                    </h2>
+                    <div th:id="'flush-collapse' + ${property.id}" class="accordion-collapse collapse"
+                      th:aria-labelledby="'flush-heading' + ${property.id}" data-bs-parent="#accordionProperties">
+                      <div class="accordion-body">
 
 
 
@@ -98,276 +98,263 @@
                         <div class="row mt-1 mb-4">
                           <div class="col">
                             <div class="card card-body d-flex flex-row mb-3">
-                        
+
                               <!-- Begin Div For New Content -->
                               <div class="p2">
-                               Square Footage: 2000 <a>&nbsp;&nbsp;</a>
+                                <a
+                                  th:text="'Square Footage: ' + ${property.squareFootage} + ' | ' + ' Rooms: ' + ${property.numberOfRooms} + ' | ' + ' Bathrooms: ' + ${property.numberOfBathrooms} + ' | ' + ' Year Built: ' + ${property.yearBuilt}"></a>
                               </div>
                               <!-- End Div For New Content -->
-                              
-                        
-                            <!-- Begin Div For New Content -->
-                            <div class="p2">
-                              Bedroom: 3 <a>&nbsp;&nbsp;</a>
-                            </div>
-                            <!-- End Div For New Content -->
-                            
-                            <!-- Begin Div For New Content -->
-                            <div class="p2">
-                              Bathrooms: 2 <a>&nbsp;&nbsp;</a>
-                            </div>
-                            <!-- End Div For New Content -->
 
-                         
 
-                            <!-- Begin Div For New Content -->
-                            <div class="p2">
-                              Year Built: 2018 <a>&nbsp;&nbsp;</a>
-                            </div>
-                            <!-- End Div For New Content -->
-                        
-                        
+
+
+
                             </div>
                           </div>
                         </div>
                         <!-- End Box -->
 
 
-                      <!-- Begin Offers Accordion -->
-                  
-                              <div class="accordion accordion-flush mt-3" id="accordionOffers">
-                                <div class="accordion-item" th:each="offer : ${property.offers}">
-                                  <h2 class="accordion-header" th:id="'flush-heading-offers' + ${offer.id}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                      th:data-bs-target="'#flush-collapse-offers' + ${offer.id}" aria-expanded="false"
-                                      th:aria-controls="'flush-collapse-offers' + ${offer.id}" th:text="'Price: ' + ${offer.priceString}">
-                                    </button>
-                                  </h2>
-                                  <div th:id="'flush-collapse-offers' + ${offer.id}" class="accordion-collapse collapse"
-                                    th:aria-labelledby="'flush-heading-offers' + ${offer.id}" data-bs-parent="#accordionOffers">
-                                    <div class="accordion-body">
+                        <!-- Begin Offers Accordion -->
 
-                              <!-- Begin Div row -->
-                              <div class="row">
-                                <!-- Begin First Left Side Box -->
-                                <div class="col">
-                                  <div class="card card-body">
-                                    <table class="table-offer-details-1">
+                        <div class="accordion accordion-flush mt-3" id="accordionOffers">
+                          <div class="accordion-item" th:each="offer : ${property.offers}">
+                            <h2 class="accordion-header" th:id="'flush-heading-offers' + ${offer.id}">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                th:data-bs-target="'#flush-collapse-offers' + ${offer.id}" aria-expanded="false"
+                                th:aria-controls="'flush-collapse-offers' + ${offer.id}"
+                                th:text="'Price: ' + ${offer.priceString}">
+                              </button>
+                            </h2>
+                            <div th:id="'flush-collapse-offers' + ${offer.id}" class="accordion-collapse collapse"
+                              th:aria-labelledby="'flush-heading-offers' + ${offer.id}"
+                              data-bs-parent="#accordionOffers">
+                              <div class="accordion-body">
 
-                                      <tbody>
+                                <!-- Begin Div row -->
+                                <div class="row">
+                                  <!-- Begin First Left Side Box -->
+                                  <div class="col">
+                                    <div class="card card-body">
+                                      <table class="table-offer-details-1">
 
-                                        <tr>
-                                          <td><strong>Down Payment:</strong></td>
-                                          <td th:text="${offer.downPaymentString}"></td>
-                                        </tr>
+                                        <tbody>
 
-                                        <tr>
-                                          <td><strong>Earnest Money:</strong></td>
-                                          <td th:text="${offer.ernestMoneyAmountString}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Down Payment:</strong></td>
+                                            <td th:text="${offer.downPaymentString}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Loan Type:</strong></td>
-                                          <td th:text="${offer.loanType}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Earnest Money:</strong></td>
+                                            <td th:text="${offer.ernestMoneyAmountString}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Waiving Appraisal:</strong></td>
-                                          <td>Waiving Appraisal</td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Loan Type:</strong></td>
+                                            <td th:text="${offer.loanType}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Buyer Contingency:</strong></td>
-                                          <td th:text="${offer.contingentBuyer}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Waiving Appraisal:</strong></td>
+                                            <td>Waiving Appraisal</td>
+                                          </tr>
 
-
-
-                                        <tr>
-                                          <td><strong>Home Warranty:</strong></td>
-                                          <td th:text="${offer.homeWarranty}"></td>
-                                        </tr>
-
-                                        <tr>
-                                          <td><strong>Inspection Period:</strong></td>
-                                          <td th:text="${offer.inspectionPeriod}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Buyer Contingency:</strong></td>
+                                            <td th:text="${offer.contingentBuyer}"></td>
+                                          </tr>
 
 
 
-                                      </tbody>
-                                    </table>
+                                          <tr>
+                                            <td><strong>Home Warranty:</strong></td>
+                                            <td th:text="${offer.homeWarranty}"></td>
+                                          </tr>
+
+                                          <tr>
+                                            <td><strong>Inspection Period:</strong></td>
+                                            <td th:text="${offer.inspectionPeriod}"></td>
+                                          </tr>
+
+
+
+                                        </tbody>
+                                      </table>
+                                    </div>
                                   </div>
-                                </div>
-                                <!-- End First Left Side Box -->
-                                <!-- Begin First Right Side Box -->
-                                <div class="col">
-                                  <div class="card card-body">
+                                  <!-- End First Left Side Box -->
+                                  <!-- Begin First Right Side Box -->
+                                  <div class="col">
+                                    <div class="card card-body">
 
-                                    <table class="table-offer-details-2">
+                                      <table class="table-offer-details-2">
 
-                                      <tbody>
+                                        <tbody>
 
-                                        <tr>
-                                          <td><strong>Seller Concessions:</strong></td>
-                                          <td th:text="${offer.concessions}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Seller Concessions:</strong></td>
+                                            <td th:text="${offer.concessions}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Personal Property:</strong></td>
-                                          <td th:text="${offer.personalPropertyRequested}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Personal Property:</strong></td>
+                                            <td th:text="${offer.personalPropertyRequested}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>HOA:</strong></td>
-                                          <td th:text="${offer.hoa}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>HOA:</strong></td>
+                                            <td th:text="${offer.hoa}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Buyer's Agent:</strong></td>
-                                          <td>Buyer's Agent</td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Buyer's Agent:</strong></td>
+                                            <td>Buyer's Agent</td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Response Date:</strong></td>
-                                          <td th:text="${offer.responseDate}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Response Date:</strong></td>
+                                            <td th:text="${offer.responseDate}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Response Time:</strong></td>
-                                          <td th:text="${offer.responseTime}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Response Time:</strong></td>
+                                            <td th:text="${offer.responseTime}"></td>
+                                          </tr>
 
-                                        <tr>
-                                          <td><strong>Close of Escrow</strong></td>
-                                          <td th:text="${offer.closeOfEscrow}"></td>
-                                        </tr>
+                                          <tr>
+                                            <td><strong>Close of Escrow</strong></td>
+                                            <td th:text="${offer.closeOfEscrow}"></td>
+                                          </tr>
 
-                                      </tbody>
-                                    </table>
+                                        </tbody>
+                                      </table>
 
 
+                                    </div>
                                   </div>
+                                  <!-- End First Right Side Box -->
                                 </div>
-                                <!-- End First Right Side Box -->
-                              </div>
 
-                              <!-- Begin Offer Submission Comments Accordion -->
-                              <div class="accordion accordion-comments mt-3" id="offerSubmissionComments">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" th:id="'comments-heading' + ${offer.id}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                      th:data-bs-target="'#comments-collapse' + ${offer.id}" aria-expanded="false"
-                                      th:aria-controls="'comments-collapse' + ${offer.id}">
-                                      Offer Submission Comments
-                                    </button>
-                                  </h2>
-                                  <div th:id="'comments-collapse' + ${offer.id}" class="accordion-collapse collapse"
-                                    th:aria-labelledby="'comments-heading' + ${offer.id}" data-bs-parent="#offerSubmissionComments">
-                                    <div class="accordion-body">
-                              
-                                      Content
-                              
+                                <!-- Begin Offer Submission Comments Accordion -->
+                                <div class="accordion accordion-comments mt-3" id="offerSubmissionComments">
+                                  <div class="accordion-item">
+                                    <h2 class="accordion-header" th:id="'comments-heading' + ${offer.id}">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        th:data-bs-target="'#comments-collapse' + ${offer.id}" aria-expanded="false"
+                                        th:aria-controls="'comments-collapse' + ${offer.id}">
+                                        Offer Submission Comments
+                                      </button>
+                                    </h2>
+                                    <div th:id="'comments-collapse' + ${offer.id}" class="accordion-collapse collapse"
+                                      th:aria-labelledby="'comments-heading' + ${offer.id}"
+                                      data-bs-parent="#offerSubmissionComments">
+                                      <div class="accordion-body">
+
+                                        Content
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                                </div>
+                                <!-- End Offer Submission Comments Accordion -->
+
+                                <!-- End Div Row -->
+
+                                <!-- Begin Box -->
+                                <div class="row mt-5">
+                                  <div class="col">
+                                    <div class="card card-body">
+                                      <!-- Begin Message Form -->
+                                      <form action="/newMessage" method="post">
+                                        <fieldset>
+
+                                          <!-- Begin second row of form fields -->
+                                          <div class="row align-items-center g-2">
+                                            <div class="mb-3 mt-3 col">
+
+                                              <input type="text" class="form-control" placeholder="Message"
+                                                aria-label="Message" name="body" required>
+                                            </div>
+
+                                            <div class="mb-3 mt-3 col-auto">
+                                              <input type="hidden" name="id" th:value="${offer.id}">
+                                              <input class="btn btn-primary" type="submit" value="Submit">
+
+
+                                            </div>
+                                          </div>
+                                          <!-- End second row of form fields -->
+                                        </fieldset>
+                                      </form>
+                                      <!-- End Message Form -->
                                     </div>
                                   </div>
                                 </div>
-                              
-                              
-                              </div>
-                              <!-- End Offer Submission Comments Accordion -->
-
-                              <!-- End Div Row -->
-
-                              <!-- Begin Box -->
-                              <div class="row mt-5">
-                                <div class="col">
-                                  <div class="card card-body">
-                                    <!-- Begin Message Form -->
-                                    <form action="/newMessage" method="post">
-                                      <fieldset>
-
-                                        <!-- Begin second row of form fields -->
-                                        <div class="row align-items-center g-2">
-                                          <div class="mb-3 mt-3 col">
-
-                                            <input type="text" class="form-control" placeholder="Message"
-                                              aria-label="Message" name="body" required>
-                                          </div>
-
-                                          <div class="mb-3 mt-3 col-auto">
-                                            <input type="hidden" name="id" th:value="${offer.id}">
-                                            <input class="btn btn-primary" type="submit" value="Submit">
+                                <!-- End Box -->
+                                <!-- Begin Message Accordion -->
+                                <div class="accordion accordion-flush mt-3" id="accordionMessages">
+                                  <div class="accordion-item">
+                                    <h2 class="accordion-header" th:id="'flush-heading-message' + ${offer.id}">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        th:data-bs-target="'#flush-collapse-message' + ${offer.id}"
+                                        aria-expanded="false" th:aria-controls="'flush-collapse-message' + ${offer.id}">
+                                        All Messages
+                                      </button>
+                                    </h2>
+                                    <div th:id="'flush-collapse-message' + ${offer.id}"
+                                      class="accordion-collapse collapse"
+                                      th:aria-labelledby="'flush-heading-message' + ${offer.id}"
+                                      data-bs-parent="#accordionMessages">
+                                      <div class="accordion-body">
 
 
-                                          </div>
+
+                                        <!-- Begin Message Chat Timeline -->
+
+                                        <div class="container" th:each="message : ${offer.messages}">
+                                          <img src="images/profile-placeholder.png" alt="Avatar">
+                                          <p th:text="'Body: ' + ${message.body}"></p>
+                                          <span class="time-right"
+                                            th:text="'Date: ' + ${message.date} + ' | ' + ${siteUser.firstName} + ' ' + ${siteUser.lastName}"></span>
                                         </div>
-                                        <!-- End second row of form fields -->
-                                      </fieldset>
-                                    </form>
-                                    <!-- End Message Form -->
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- End Box -->
-                              <!-- Begin Message Accordion -->
-                              <div class="accordion accordion-flush mt-3" id="accordionMessages">
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" th:id="'flush-heading-message' + ${offer.id}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                      th:data-bs-target="'#flush-collapse-message' + ${offer.id}" aria-expanded="false"
-                                      th:aria-controls="'flush-collapse-message' + ${offer.id}">
-                                      All Messages
-                                    </button>
-                                  </h2>
-                                  <div th:id="'flush-collapse-message' + ${offer.id}"
-                                    class="accordion-collapse collapse"
-                                    th:aria-labelledby="'flush-heading-message' + ${offer.id}"
-                                    data-bs-parent="#accordionMessages">
-                                    <div class="accordion-body">
 
+                                        <div class="container darker">
+                                          <img src="images/profile-placeholder.png" alt="Avatar" class="right">
+                                          <p>Hey! I'm fine. Thanks for asking!</p>
+                                          <span class="time-left">11:01</span>
+                                        </div>
 
+                                        <!-- End Message Chat Timeline -->
 
-                                      <!-- Begin Message Chat Timeline -->
-
-                                      <div class="container" th:each="message : ${offer.messages}">
-                                        <img src="images/profile-placeholder.png" alt="Avatar">
-                                        <p th:text="'Body: ' + ${message.body}"></p>
-                                        <span class="time-right" th:text="'Date: ' + ${message.date} + ' | ' + ${siteUser.firstName} + ' ' + ${siteUser.lastName}"></span>
                                       </div>
-
-                                      <div class="container darker">
-                                        <img src="images/profile-placeholder.png" alt="Avatar" class="right">
-                                        <p>Hey! I'm fine. Thanks for asking!</p>
-                                        <span class="time-left">11:01</span>
-                                      </div>
-
-                                      <!-- End Message Chat Timeline -->
-
                                     </div>
                                   </div>
-                                </div>
 
+
+                                </div>
+                                <!-- End Message Accordion -->
 
                               </div>
-                              <!-- End Message Accordion -->
-
                             </div>
                           </div>
                         </div>
+                        <!-- End Offers Accordion -->
                       </div>
-                      <!-- End Offers Accordion -->
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- End Properties Accordion -->
+                <!-- End Properties Accordion -->
 
+              </div>
             </div>
           </div>
         </div>
+        <!-- End Accordion -->
       </div>
-      <!-- End Accordion -->
-</div>
     </div>
     <!-- End For Loop -->
 
