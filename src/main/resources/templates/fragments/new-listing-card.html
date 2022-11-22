@@ -6,9 +6,9 @@
 </head>
 
 <body>
-<div class="m-4 p2">
-  <h1>My Dashboard</h1>
-</div>
+  <div class="m-4 p2">
+    <h1>My Dashboard</h1>
+  </div>
   <!-- Begin Div Container for Loop -->
   <div class="mt-5">
 
@@ -34,42 +34,80 @@
 
 
                 <!-- Begin Box -->
-                <div class="mt-1 mb-4 d-flex justify-content-end">
-                  <!-- Begin New Listing Button -->
-                  <div class="p-2">
-                    <form action="/newListing" method="get">
-                      <fieldset>
-                        <input type="hidden" name="username" th:value="${seller.username}">
-                        <input type="hidden" name="accountStatus" th:value="${true}">
-                        <input class="btn btn-success btn-sm" type="submit" value="New Listing">
-                      </fieldset>
-                    </form>
+                <div class="row">
+                  <div class="col mt-1 mb-4 d-flex justify-content-start">
+                    <!-- Begin New Listing Button -->
+                    <div class="p-2">
+                      <form action="/newListing" method="get">
+                        <fieldset>
+                          <input type="hidden" name="username" th:value="${seller.username}">
+                          <input type="hidden" name="accountStatus" th:value="${true}">
+                          <input class="btn btn-success btn-sm" type="submit" value="New Listing">
+                        </fieldset>
+                      </form>
+                    </div>
+                    <!-- End New Listing Button -->
                   </div>
-                  <!-- End New Listing Button -->
+
+                  <div class="col mt-1 mb-4 d-flex justify-content-end">
 
 
-                  <!-- Begin Archive Seller Button -->
-                  <div class="p-2">
-                    <form action="/archiveSeller" th:method="put">
-                      <fieldset>
-                        <input type="hidden" name="id" th:value="${seller.id}">
-                        <input class="btn btn-warning btn-sm" type="submit" value="Archive Seller">
-                      </fieldset>
-                    </form>
+
+                    <!-- Begin Archive Seller Button -->
+                    <div class="p-2">
+                      <form action="/archiveSeller" th:method="put">
+                        <fieldset>
+                          <input type="hidden" name="id" th:value="${seller.id}">
+                          <input class="btn btn-secondary btn-sm" type="submit" value="Archive Seller">
+                        </fieldset>
+                      </form>
+                    </div>
+                    <!-- End Archive Seller Button -->
+
+
+                    <!-- Begin Delete Seller Button -->
+                    <div class="p-2">
+                      <!-- Begin Modal -->
+                      <!-- Begin Modal Button -->
+                      <input class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteSeller"
+                        type="submit" value="Delete Seller">
+                      <!-- End Modal Button -->
+                      <!-- Modal Box-->
+                      <div class="modal fade" id="deleteSeller" tabindex="-1" aria-labelledby="deleteSellerLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="deleteSellerLabel">Delete Seller</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="d-flex justify-content-center">
+                                <div class="p-2">
+                                  <h4 th:text="'Are you sure you want to delete ' + ${seller.firstName} + '?'"></h4>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="modal">Close</button>
+                              <form action="/deleteSeller" th:method="delete">
+                                <fieldset>
+                                  <input type="hidden" name="id" th:value="${seller.id}">
+                                  <input class="btn btn-danger" type="submit"
+                                    th:value="'Yes, Delete ' + ${seller.firstName}">
+                                </fieldset>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Modal Box -->
+                      <!-- End Modal -->
+                    </div>
+                    <!-- End Delete Seller Button -->
                   </div>
-                  <!-- End Archive Seller Button -->
-
-
-                  <!-- Begin Delete Seller Button -->
-                  <div class="p-2">
-                    <form action="/deleteSeller" th:method="delete">
-                      <fieldset>
-                        <input type="hidden" name="id" th:value="${seller.id}">
-                        <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
-                      </fieldset>
-                    </form>
-                  </div>
-                  <!-- End Delete Seller Button -->
                 </div>
                 <!-- End Box -->
 

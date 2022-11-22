@@ -32,6 +32,9 @@ public class Offer {
     String priceString;
     String downPaymentString;
     String ernestMoneyAmountString;
+    String contingentBuyerString;
+    String responseDateString;
+    String closeOfEscrowString;
 
 
     @ManyToOne
@@ -43,7 +46,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, Date closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString) {
+    public Offer(float offerPrice, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, Date closeOfEscrow, String concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, LocalTime responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString) {
         this.offerPrice = offerPrice;
         this.downPayment = downPayment;
         this.contingentBuyer = contingentBuyer;
@@ -65,6 +68,9 @@ public class Offer {
         this.priceString = priceString;
         this.downPaymentString = downPaymentString;
         this.ernestMoneyAmountString = ernestMoneyAmountString;
+        this.contingentBuyerString = contingentBuyerString;
+        this.responseDateString = responseDateString;
+        this.closeOfEscrowString = closeOfEscrowString;
     }
 
 
@@ -160,5 +166,17 @@ public class Offer {
 
     public List<Message> getMessages() {
         return messages;
+    }
+
+    public String getContingentBuyerString() {
+        return contingentBuyerString;
+    }
+
+    public String getResponseDateString() {
+        return responseDateString;
+    }
+
+    public String getCloseOfEscrowString() {
+        return closeOfEscrowString;
     }
 }
