@@ -21,6 +21,34 @@
   color: #e8e8e8;
 }
 
+/* Begin Offer Button */
+.accordion-button-offer:not(.collapsed) {
+  color: inherit;
+  /* background: rgb(35, 65, 100); */
+  background: #1F271B;
+  color: #e8e8e8;
+}
+
+.accordion-button-offer {
+  color: inherit;
+  background: #CBB9A8;
+  color: #e8e8e8;
+}
+
+.accordion-button-offer:not(.collapsed)::after {
+  filter: brightness(0%) invert(100%);
+}
+
+.accordion-button-offer::after {
+  filter: brightness(0%) invert(100%);
+}
+
+.accordion-button-offer:focus {
+  box-shadow: inherit;
+}
+
+/* End Offer Button */
+
 .accordion-button:not(.collapsed)::after {
   filter: brightness(0%) invert(100%);
 }
@@ -32,6 +60,7 @@
 .accordion-button:focus {
   box-shadow: inherit;
 }
+
 
 /* END ACCORDION STYLE */
 

@@ -62,21 +62,21 @@
 
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
-              <input type="text" class="form-control" id="floatingPrice" placeholder="price" name="price" required>
+              <input type="number" class="form-control" id="floatingPrice" placeholder="price" name="price" required>
 
               <label for="floatingPrice">Offer Price</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
-              <input type="text" class="form-control" id="floatingDownPayment" placeholder="downPayment"
+              <input type="number" class="form-control" id="floatingDownPayment" placeholder="downPayment"
                 name="downPayment" required>
               <label for="floatingDownPayment">Down Payment</label>
             </div>
 
             <div class="form-floating mb-3">
               <i class="icon fa-solid fa-dollar-sign fa-lg"></i>
-              <input type="text" class="form-control" id="floatingErnestMoneyAmount" placeholder="ernestMoneyAmount"
+              <input type="number" class="form-control" id="floatingErnestMoneyAmount" placeholder="ernestMoneyAmount"
                 name="ernestMoneyAmount" required>
               <label for="floatingErnestMoneyAmount">Ernest Money Amount</label>
 
@@ -148,7 +148,18 @@
                 <option selected>HOA</option>
                 <option>Paid by seller</option>
                 <option>Paid by buyer</option>
-                <option>Split 50/50 between buyer and seller</option>
+                <option>Split 50/50</option>
+              </select>
+            </div>
+
+            <div class="form-floating mb-3">
+              <i class="icon fa-solid fa-house-circle-check fa-lg"></i>
+              <select class="form-control" id="floatingHomeWarranty" placeholder="homeWarranty" name="homeWarranty" required>
+            
+                <option selected>Home Warranty</option>
+                <option>Paid by seller</option>
+                <option>Paid by buyer</option>
+                <option>Buyer Declined</option>
               </select>
             </div>
 
