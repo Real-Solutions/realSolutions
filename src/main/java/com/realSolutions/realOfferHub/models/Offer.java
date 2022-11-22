@@ -28,6 +28,12 @@ public class Offer {
     Date responseDate;
     Date responseTime;
     String additionalTermsAndConditions;
+    String priceString;
+    String downPaymentString;
+
+    String ernestMoneyAmountString;
+    String closeOfEscrowString;
+    String concessionsString;
 
 
     @ManyToOne
@@ -39,7 +45,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(String address, float price, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, Date responseTime, String additionalTermsAndConditions) {
+    public Offer(String address, float price, float downPayment, boolean contingentBuyer, Property myProperty, String buyersFirstName, String buyersLastName, float ernestMoneyAmount, float closeOfEscrow, float concessions, String loanType, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, boolean escalation, Date responseDate, Date responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String closeOfEscrowString, String concessionsString) {
         this.buyersFirstName = buyersFirstName;
         this.buyersLastName = buyersLastName;
         this.offerPrice = offerPrice;
@@ -57,11 +63,37 @@ public class Offer {
         this.responseDate = responseDate;
         this.responseTime = responseTime;
         this.additionalTermsAndConditions = additionalTermsAndConditions;
+        this.priceString = priceString;
         this.myProperty = myProperty;
+        this.downPaymentString = downPaymentString;
+        this.ernestMoneyAmountString = ernestMoneyAmountString;
+        this.closeOfEscrowString = closeOfEscrowString;
+        this.concessionsString = concessionsString;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getDownPaymentString() {
+        return downPaymentString;
+    }
+
+
+    public String getErnestMoneyAmountString() {
+        return ernestMoneyAmountString;
+    }
+
+    public String getCloseOfEscrowString() {
+        return closeOfEscrowString;
+    }
+
+    public String getConcessionsString() {
+        return concessionsString;
+    }
+
+    public String getPriceString() {
+        return priceString;
     }
 
     public String getBuyersLastName() {
