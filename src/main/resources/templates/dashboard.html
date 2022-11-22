@@ -17,6 +17,10 @@
         
     </main>
 
+    <div th:if="${siteUser.role.equals('agent')}">
+        <h2 th:text="${siteUser.archivedSellers.size}"></h2>
+    </div>
+
     <!-- Start OLD Agent Main -->
 
     <!-- <main th:if="${siteUser.role.equals('agent')}">

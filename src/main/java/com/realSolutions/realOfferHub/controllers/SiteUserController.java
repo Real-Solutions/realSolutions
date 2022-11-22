@@ -123,17 +123,17 @@ public class SiteUserController {
     }
 
     @PutMapping("/archiveSeller")
-    public RedirectView archiveSeller(String id){
+    public RedirectView archiveSeller(String id, Principal p){
         Long idL = Long.parseLong(id);
-        SiteUser siteUser = siteUserRepository.getReferenceById(idL);
-        for(Property property : siteUser.getProperties()){
-            for(Offer offer : property.getOffers()){
-                messageRepository.deleteAll(offer.getMessages());
-                offerRepository.delete(offer);
-            }
-            propertyRepository.delete(property);
-        }
-        siteUserRepository.delete(siteUser);
+
+        SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        SiteUser seller = siteUserRepository.getReferenceById(idL);
+
+        List<SiteUser> update = siteUser.getArchivedSellers();
+        update.add(seller);
+        siteUser.setArchivedSellers(update);
+        siteUserRepository.save(siteUser);
+
         return new RedirectView("/dashboard");
     }
 
