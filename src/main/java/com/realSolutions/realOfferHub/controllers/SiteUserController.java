@@ -58,6 +58,15 @@ public class SiteUserController {
         return "signup";
     }
 
+    @GetMapping("/")
+    public String getSplash(Principal p, Model m){
+        if(p != null) {
+            SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+            m.addAttribute("siteUser", siteUser);
+        }
+        return "index";
+    }
+
     @GetMapping("/dashboard")
     public String getDashboardPage(Principal p, Model m){
         SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
