@@ -1,85 +1,91 @@
 <!-- Begin Message Accordion -->
 <main>
-  <div class="accordion accordion-flush mt-3" id="accordionArchive">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-heading-archive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#flush-collapse-archive" aria-expanded="false" aria-controls="flush-collapse-archive">
-          All Archive
-        </button>
-      </h2>
-      <div id="flush-collapse-archive" class="accordion-collapse collapse" aria-labelledby="flush-heading-archive"
-        data-bs-parent="#accordionArchive">
-        <div class="accordion-body">
+  
+  
+    <div class="container border-0">
+
+    <div class="accordion accordion-flush mt-3" id="accordionArchive">
+      <div class="accordion-item m-5">
+        <h2 class="accordion-header" id="flush-heading-archive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapse-archive" aria-expanded="false" aria-controls="flush-collapse-archive">
+            All Archive
+          </button>
+        </h2>
+        <div id="flush-collapse-archive" class="accordion-collapse collapse" aria-labelledby="flush-heading-archive"
+          data-bs-parent="#accordionArchive">
+          <div class="accordion-body">
 
 
-          <div th:if="${siteUser.role.equals('agent')}">
-            <h2 th:text="${siteUser.archivedSellers.size} + ' in archive'"></h2>
-          </div>
+            <div th:if="${siteUser.role.equals('agent')}">
+              <h2 th:text="${siteUser.archivedSellers.size} + ' in archive'"></h2>
+            </div>
 
-          <!-- Begin Message Chat Timeline -->
+            <!-- Begin Message Chat Timeline -->
 
-          <div class="container" th:each="oldSeller : ${siteUser.archivedSellers}">
-
-
-
-
-            <!-- Begin Offer Details Box -->
-            <div class="row">
-
-
-              <!-- Begin First Left Side Box -->
-              <div class="col">
-
-                <table class="table-offer-details-1">
-                  <tbody>
-
-                    <tr>
-                      
-                      <td>
-                        <form action="/returnSeller" th:method="put">
-                          <fieldset>
-                            <input type="hidden" name="id" th:value="${oldSeller.id}">
-                            <input class="btn btn-success btn-sm" type="submit" value="Return Seller" />
-
-                          </fieldset>
-                        </form>
-                      </td>
-
-                      <td>
-                        <form action="/deleteSeller" th:method="delete">
-                          <fieldset>
-                            <input type="hidden" name="id" th:value="${oldSeller.id}">
-                            <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
-                          </fieldset>
-                        </form>
-                      </td>
-                      <td th:text="' ' + ${oldSeller.firstName} + ' ' + ${oldSeller.lastName}"><strong></strong></td>
-                    </tr>
+            <div class="container" th:each="oldSeller : ${siteUser.archivedSellers}">
 
 
 
 
+              <!-- Begin Offer Details Box -->
+              <div class="row">
+
+
+                <!-- Begin First Left Side Box -->
+                <div class="col">
+
+                  <table class="table-offer-details-1">
+                    <tbody>
+
+                      <tr>
+
+                        <td>
+                          <form action="/returnSeller" th:method="put">
+                            <fieldset>
+                              <input type="hidden" name="id" th:value="${oldSeller.id}">
+                              <input class="btn btn-success btn-sm" type="submit" value="Return Seller" />
+
+                            </fieldset>
+                          </form>
+                        </td>
+
+                        <td>
+                          <form action="/deleteSeller" th:method="delete">
+                            <fieldset>
+                              <input type="hidden" name="id" th:value="${oldSeller.id}">
+                              <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
+                            </fieldset>
+                          </form>
+                        </td>
+                        <td th:text="' ' + ${oldSeller.firstName} + ' ' + ${oldSeller.lastName}"><strong></strong></td>
+                      </tr>
 
 
 
-                  </tbody>
-                </table>
+
+
+
+
+                    </tbody>
+                  </table>
+
+                </div>
+                <!-- End First Left Side Box -->
 
               </div>
-              <!-- End First Left Side Box -->
+              <!-- End Offer Details Box -->
 
+
+              <!-- End Message Chat Timeline -->
             </div>
-            <!-- End Offer Details Box -->
-
-
-            <!-- End Message Chat Timeline -->
           </div>
         </div>
       </div>
+
     </div>
-
-
-  </div>
+    </div>
+  
+ 
 </main>
 <!-- End Message Accordion -->
