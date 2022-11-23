@@ -64,16 +64,27 @@
                     </div>
                     <!-- End Archive Seller Button -->
 
+                      <!-- Begin Archive Seller Button -->
+                      <div class="p-2">
+                        <form action="/deleteSeller" th:method="delete">
+                          <fieldset>
+                            <input type="hidden" name="id" th:value="${seller.id}">
+                            <input class="btn btn-danger btn-sm" type="submit" value="Delete Seller">
+                          </fieldset>
+                        </form>
+                      </div>
+                      <!-- End Archive Seller Button -->
+
 
                     <!-- Begin Delete Seller Button -->
-                    <div class="p-2">
+                    <!-- <div class="p-2"> -->
                       <!-- Begin Modal -->
                       <!-- Begin Modal Button -->
-                      <input class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteSeller"
-                        type="submit" value="Delete Seller">
+                      <!-- <input class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteSeller"
+                        type="submit" value="Delete Seller"> -->
                       <!-- End Modal Button -->
                       <!-- Modal Box-->
-                      <div class="modal fade" id="deleteSeller" tabindex="-1" aria-labelledby="deleteSellerLabel"
+                      <!-- <div class="modal fade" id="deleteSeller" tabindex="-1" aria-labelledby="deleteSellerLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -102,7 +113,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                       <!-- End Modal Box -->
                       <!-- End Modal -->
                     </div>
