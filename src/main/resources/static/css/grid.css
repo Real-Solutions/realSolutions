@@ -9,7 +9,7 @@ body {
     'lside main main rside'
     'footer footer footer footer';
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-columns: 0.25fr 2fr 2fr 0.25fr;
 
 }
 
@@ -26,28 +26,33 @@ content,
   background-color: white;
   color: #000000;
   padding: 20px;
-  border: black 1px solid;
+  /* border: black 1px solid; */
 }
 
 
 header {
   grid-area: header;
+  background-color: #f3f2ef;
 }
 
 
 main {
   grid-area: main;
   padding: 0px;
+  /* background-color: #f3f2ef; */
 }
 
 .lside {
   grid-area: lside;
+  /* background-color: #f3f2ef; */
 }
 
 .rside {
   grid-area: rside;
+  /* background-color: #f3f2ef; */
 }
 
 footer {
   grid-area: footer;
+  background-color: #f3f2ef;
 }

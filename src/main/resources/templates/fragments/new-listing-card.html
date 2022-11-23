@@ -19,7 +19,7 @@
 
         <!-- Begin Accordion -->
         <div class="accordion" id="accordionPanelsStayOpenExample">
-          <div class="accordion-item mt-3" th:each="seller : ${sellers}">
+          <div class="accordion-item m-5" th:each="seller : ${sellers}">
             <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${seller.id}">
               <button class="accordion-button" type="button" data-bs-toggle="collapse"
                 th:data-bs-target="'#panelsStayOpen-collapse' + ${seller.id}" aria-expanded="false"
