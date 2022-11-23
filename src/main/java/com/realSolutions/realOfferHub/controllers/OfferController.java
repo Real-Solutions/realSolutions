@@ -43,9 +43,9 @@ public class OfferController {
 
     @GetMapping("/offer")
     public String getOffer(Principal p, Model m){
-        SiteUser agent = siteUserRepository
-                .findByUsername(p.getName());
+        SiteUser agent = siteUserRepository.findByUsername(p.getName());
         m.addAttribute("username", p.getName());
+        m.addAttribute("siteUser", agent);
         ArrayList<String> addresses = new ArrayList<>();
         for (SiteUser seller : agent.getSellers()){
             for(Property property : seller.getProperties()){
