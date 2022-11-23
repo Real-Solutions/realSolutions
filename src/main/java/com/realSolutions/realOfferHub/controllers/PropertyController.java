@@ -1,6 +1,7 @@
 package com.realSolutions.realOfferHub.controllers;
 import com.realSolutions.realOfferHub.models.Offer;
 import com.realSolutions.realOfferHub.models.Property;
+import com.realSolutions.realOfferHub.models.SiteUser;
 import com.realSolutions.realOfferHub.repositories.MessageRepository;
 import com.realSolutions.realOfferHub.repositories.OfferRepository;
 import com.realSolutions.realOfferHub.repositories.PropertyRepository;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.security.Principal;
 
 @Controller
 public class PropertyController {
@@ -28,8 +31,10 @@ public class PropertyController {
     MessageRepository messageRepository;
 
     @GetMapping("/newListing")
-    public String addListing(String username, String accountStatus, Model m){
+    public String addListing(String username, String accountStatus, Model m, Principal p){
         boolean status = Boolean.parseBoolean(accountStatus);
+        SiteUser siteUser = siteUserRepository.findByUsername(p.getName());
+        m.addAttribute("siteUser", siteUser);
         m.addAttribute("status", status);
         if(status) {
             m.addAttribute("username", username);
