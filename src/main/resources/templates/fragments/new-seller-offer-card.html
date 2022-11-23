@@ -22,7 +22,7 @@
         <h2 class="accordion-header" th:id="'panelsStayOpen-heading' + ${offer.id}">
           <button class="accordion-button" type="button" data-bs-toggle="collapse"
             th:data-bs-target="'#panelsStayOpen-collapse' + ${offer.id}" aria-expanded="false"
-            th:aria-controls="'panelsStayOpen-collapse' + ${offer.id}" th:text="'Property: ' + ${offer.myProperty.address} + ' | Offer Price: ' + ${offer.priceString}">
+            th:aria-controls="'panelsStayOpen-collapse' + ${offer.id}" th:text="'Property: ' + ${offer.myProperty.address} + ' | Offer Price: ' + ${offer.priceString}  + ' | Buyer: ' + ${offer.buyersFirstName} + ' ' + ${offer.buyersLastName}">
             Accordion Item #1
           </button>
     
