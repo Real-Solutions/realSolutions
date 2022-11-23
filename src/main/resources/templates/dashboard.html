@@ -17,25 +17,7 @@
         
     </main>
 
-    <div th:if="${siteUser.role.equals('agent')}">
-        <h2 th:text="${siteUser.archivedSellers.size}"></h2>
-    </div>
-
-    <div th:if="${siteUser.role.equals('agent')}">
-        <ul>
-            <div th:each="oldSeller : ${siteUser.archivedSellers}">
-
-            <li th:text="${oldSeller.firstName}"></li>
-                <form action="/returnSeller" th:method="put">
-                    <fieldset>
-                        <input type="hidden" name="id" th:value="${oldSeller.id}">
-                        <input type="submit" value="Return Seller" />
-                    </fieldset>
-                </form>
-
-            </div>
-        </ul>
-    </div>
+  
 
     <!-- Start OLD Agent Main -->
 

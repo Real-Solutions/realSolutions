@@ -191,7 +191,7 @@
                   th:aria-labelledby="'comments-heading' + ${offer.id}" data-bs-parent="#offerSubmissionComments">
                   <div class="accordion-body">
 
-                    Content
+                    <p th:text="${offer.additionalTermsAndConditions}"></p>
 
                   </div>
                 </div>
