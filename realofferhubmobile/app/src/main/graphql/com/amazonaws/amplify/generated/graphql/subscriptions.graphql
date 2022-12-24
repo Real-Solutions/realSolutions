@@ -1,0 +1,109 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
+  onCreateUserType(filter: $filter) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
+  onUpdateUserType(filter: $filter) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUserType($filter: ModelSubscriptionUserTypeFilterInput) {
+  onDeleteUserType(filter: $filter) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+  onCreateUser(filter: $filter) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+  onUpdateUser(filter: $filter) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+  onDeleteUser(filter: $filter) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}

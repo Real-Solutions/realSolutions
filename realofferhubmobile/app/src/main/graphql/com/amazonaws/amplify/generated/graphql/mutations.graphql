@@ -1,0 +1,127 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUserType(
+  $input: CreateUserTypeInput!
+  $condition: ModelUserTypeConditionInput
+) {
+  createUserType(input: $input, condition: $condition) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUserType(
+  $input: UpdateUserTypeInput!
+  $condition: ModelUserTypeConditionInput
+) {
+  updateUserType(input: $input, condition: $condition) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUserType(
+  $input: DeleteUserTypeInput!
+  $condition: ModelUserTypeConditionInput
+) {
+  deleteUserType(input: $input, condition: $condition) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}

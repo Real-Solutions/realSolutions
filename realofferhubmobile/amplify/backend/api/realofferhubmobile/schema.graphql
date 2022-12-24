@@ -1,0 +1,14 @@
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+
+type UserType @model @auth(rules: [{allow: public}]){
+  id: ID!
+  type: String!
+  users: [User] @hasMany(indexName: "byUserType", fields: ["id"])
+}
+
+type User @model @auth(rules: [{allow: public}]){
+  id: ID!
+  name: String!
+  userTypeId: ID! @index(name: "byUserType", sortKeyFields: ["name"])
+  userType: UserType @belongsTo(fields: ["userTypeId"])
+}

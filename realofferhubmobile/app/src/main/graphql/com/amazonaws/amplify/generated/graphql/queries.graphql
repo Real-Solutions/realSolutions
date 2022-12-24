@@ -1,0 +1,109 @@
+# this is an auto generated file. This will be overwritten
+query GetUserType($id: ID!) {
+  getUserType(id: $id) {
+    id
+    type
+    users {
+      items {
+        id
+        name
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUserTypes(
+  $filter: ModelUserTypeFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserTypes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    name
+    userTypeId
+    userType {
+      id
+      type
+      users {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query UsersByUserTypeIdAndName(
+  $userTypeId: ID!
+  $name: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  usersByUserTypeIdAndName(
+    userTypeId: $userTypeId
+    name: $name
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      name
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
